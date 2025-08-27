@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubato - Modern Tech Solutions｜株式会社Rubato</title>
+    <meta name="description" content="株式会社Rubatoは、フリーランスエンジニアと企業を繋ぐモダンなテックソリューションを提供します。BI、AI、Web開発など幅広い技術領域で最高のパートナーシップを実現。">
+    <meta name="keywords" content="フリーランス, エンジニア, 株式会社Rubato, AI, BI, Java, .NET, PHP, Python, システム開発, 法人協業">
+    <meta property="og:title" content="Rubato - Modern Tech Solutions｜株式会社Rubato">
+    <meta property="og:description" content="フリーランスエンジニアと企業を繋ぐモダンなテックソリューション">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rubato-tech.co.jp">
+    <link rel="icon" href="./rubato_favicon.png" type="image/png">
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.1);
+            color: #667eea;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #667eea20 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #764ba220 0%, transparent 50%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="./rubato_logo_256.png" alt="Rubato Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-bold gradient-text heading-font">Rubato</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="#services" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="#technology" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Technology</a>
+                        <a href="#partnership" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Partnership</a>
+                        <a href="#contact" class="btn-primary text-white px-4 py-2 rounded-lg text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-btn text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center hero-pattern">
+        <div class="absolute inset-0 bg-white bg-opacity-50"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <div class="floating mb-8">
+                    <img src="./rubato_logo_transparent.png" alt="Rubato" class="h-24 w-auto mx-auto mb-6">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 heading-font">
+                    <span class="gradient-text">Modern Tech</span><br>
+                    <span class="text-gray-800">Solutions</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    データとハーモニーで、未来のテクノロジーソリューションを創造します
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#services" class="btn-primary text-white px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center">
+                        <i class="fas fa-rocket mr-2"></i>
+                        サービスを見る
+                    </a>
+                    <a href="#partnership" class="bg-white text-gray-700 border-2 border-gray-300 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition-colors inline-flex items-center">
+                        <i class="fas fa-handshake mr-2"></i>
+                        パートナーシップ
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-gray-400"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 heading-font">About Rubato</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    株式会社Rubatoは、テクノロジーとビジネスの架け橋となり、<br>
+                    最適なソリューションを提供する革新的なIT企業です。
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-in card-hover bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">手厚いサポート</h3>
+                    <p class="text-gray-600">
+                        エンジニア一人ひとりに専任担当者がつき、プロジェクトの開始から完了まで徹底的にサポートします。
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in card-hover bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bolt text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">フットワークの軽さ</h3>
+                    <p class="text-gray-600">
+                        迅速な意思決定と柔軟な対応で、お客様のニーズに素早くお応えします。
+                    </p>
+                </div>
+                
+                <div class="text-center fade-in card-hover bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">実績と信頼</h3>
+                    <p class="text-gray-600">
+                        大手企業との直接取引実績を多数持ち、高品質なサービスを継続的に提供しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 heading-font">Our Services</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    幅広い技術領域で、最高のソリューションを提供します
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover fade-in">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">フリーランス支援</h3>
+                    <p class="text-gray-600 mb-4">
+                        優秀なフリーランスエンジニアと企業のマッチング、プロジェクト管理、キャリアサポートを提供します。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• プロジェクト紹介・マッチング</li>
+                        <li>• 契約・事務手続きサポート</li>
+                        <li>• スキルアップ支援</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover fade-in">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">法人協業</h3>
+                    <p class="text-gray-600 mb-4">
+                        同業他社との戦略的パートナーシップにより、より大きなプロジェクトの実現を支援します。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• 業務提携・共同受注</li>
+                        <li>• 技術リソース共有</li>
+                        <li>• 大規模案件対応</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover fade-in">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">システム開発</h3>
+                    <p class="text-gray-600 mb-4">
+                        最新技術を活用したWebアプリケーション、モバイルアプリ、業務システムの開発を行います。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Webアプリケーション開発</li>
+                        <li>• モバイルアプリ開発</li>
+                        <li>• 業務システム構築</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover fade-in">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-bar text-xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">データ分析・BI</h3>
+                    <p class="text-gray-600 mb-4">
+                        ビッグデータの収集・分析から、意思決定を支援するBIシステムの構築まで対応します。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• データウェアハウス構築</li>
+                        <li>• ETL処理・データパイプライン</li>
+                        <li>• ダッシュボード・レポート作成</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover fade-in">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">AI・機械学習</h3>
+                    <p class="text-gray-600 mb-4">
+                        最先端のAI技術を活用した自動化システムや予測モデルの開発を行います。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• 機械学習モデル開発</li>
+                        <li>• 自然言語処理システム</li>
+                        <li>• 画像・音声認識システム</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover fade-in">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">クラウド・インフラ</h3>
+                    <p class="text-gray-600 mb-4">
+                        AWS、Azure、GCPを活用したクラウドインフラの設計・構築・運用を支援します。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• クラウド移行・最適化</li>
+                        <li>• DevOps・CI/CD構築</li>
+                        <li>• セキュリティ・監視システム</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section id="technology" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 heading-font">Technology Stack</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    幅広い技術スタックで、最適なソリューションを提供
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <h3 class="text-lg font-semibold mb-6 text-gray-900">Backend</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-java text-3xl tech-icon text-red-600"></i>
+                            <span class="text-gray-700">Java</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-microsoft text-3xl tech-icon text-blue-600"></i>
+                            <span class="text-gray-700">.NET</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-php text-3xl tech-icon text-purple-600"></i>
+                            <span class="text-gray-700">PHP</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-python text-3xl tech-icon text-yellow-600"></i>
+                            <span class="text-gray-700">Python</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-node-js text-3xl tech-icon text-green-600"></i>
+                            <span class="text-gray-700">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <h3 class="text-lg font-semibold mb-6 text-gray-900">Frontend</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-react text-3xl tech-icon text-blue-400"></i>
+                            <span class="text-gray-700">React</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-vue text-3xl tech-icon text-green-500"></i>
+                            <span class="text-gray-700">Vue.js</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-angular text-3xl tech-icon text-red-500"></i>
+                            <span class="text-gray-700">Angular</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-js text-3xl tech-icon text-yellow-500"></i>
+                            <span class="text-gray-700">JavaScript</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-html5 text-3xl tech-icon text-orange-500"></i>
+                            <span class="text-gray-700">HTML5/CSS3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <h3 class="text-lg font-semibold mb-6 text-gray-900">Mobile</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-swift text-3xl tech-icon text-orange-600"></i>
+                            <span class="text-gray-700">Swift</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-android text-3xl tech-icon text-green-600"></i>
+                            <span class="text-gray-700">Kotlin</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fas fa-mobile-alt text-3xl tech-icon text-blue-500"></i>
+                            <span class="text-gray-700">Flutter</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-react text-3xl tech-icon text-blue-400"></i>
+                            <span class="text-gray-700">React Native</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <h3 class="text-lg font-semibold mb-6 text-gray-900">Cloud & DevOps</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-aws text-3xl tech-icon text-orange-500"></i>
+                            <span class="text-gray-700">AWS</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-microsoft text-3xl tech-icon text-blue-600"></i>
+                            <span class="text-gray-700">Azure</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-google text-3xl tech-icon text-red-500"></i>
+                            <span class="text-gray-700">GCP</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fab fa-docker text-3xl tech-icon text-blue-500"></i>
+                            <span class="text-gray-700">Docker</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fas fa-dharmachakra text-3xl tech-icon text-blue-600"></i>
+                            <span class="text-gray-700">Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section id="partnership" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-white mb-4 heading-font">Partnership</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    私たちと一緒に、テクノロジーの未来を創造しませんか？
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-6">法人パートナー募集</h3>
+                    <div class="space-y-6 text-blue-100">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">技術リソースの共有</h4>
+                                <p>互いの技術的強みを活かし、より大規模で複雑なプロジェクトに取り組むことができます。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">共同受注による事業拡大</h4>
+                                <p>単独では難しい大型案件も、パートナーシップにより受注・実行が可能になります。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">相互成長の実現</h4>
+                                <p>知識・技術・ノウハウの共有により、双方の成長と発展を促進します。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6">フリーランサー登録</h3>
+                        <div class="space-y-4 text-blue-100">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span>高単価案件の優先紹介</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span>専任担当者による手厚いサポート</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span>スキルアップ支援・研修制度</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span>長期安定プロジェクトの提供</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span>フレキシブルな働き方の実現</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="#contact" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
+                                <i class="fas fa-user-plus mr-2"></i>
+                                今すぐ登録する
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Info -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 heading-font">Company Information</h2>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm">
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <i class="fas fa-building text-blue-600 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">会社名</h4>
+                                    <p class="text-gray-600">株式会社Rubato</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <i class="fas fa-calendar text-blue-600 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">設立</h4>
+                                    <p class="text-gray-600">2018年4月</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <i class="fas fa-map-marker-alt text-blue-600 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">所在地</h4>
+                                    <p class="text-gray-600">
+                                        〒150-0001<br>
+                                        東京都渋谷区神宮前6-23-4 桑野ビル2階
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <i class="fas fa-user-tie text-blue-600 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">代表者</h4>
+                                    <p class="text-gray-600">代表取締役 有田</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">事業内容</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h4 class="font-semibold text-gray-900 mb-2">システム開発・保守</h4>
+                            <p class="text-gray-600 text-sm">Webアプリケーション、モバイルアプリ、業務システムの設計・開発・運用</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h4 class="font-semibold text-gray-900 mb-2">データ分析・BI構築</h4>
+                            <p class="text-gray-600 text-sm">ビッグデータ分析、ETL処理、ダッシュボード・レポート作成</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h4 class="font-semibold text-gray-900 mb-2">AI・機械学習ソリューション</h4>
+                            <p class="text-gray-600 text-sm">機械学習モデル開発、自動化システム構築</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h4 class="font-semibold text-gray-900 mb-2">フリーランスエンジニア支援</h4>
+                            <p class="text-gray-600 text-sm">人材マッチング、プロジェクト管理、キャリアサポート</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 heading-font">Contact Us</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    お気軽にお問い合わせください。最適なソリューションをご提案いたします。
+                </p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-3xl p-8 md:p-12 fade-in">
+                <form action="https://formspree.io/f/xvgpqrst" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">お名前</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">メールアドレス</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-2">会社名</label>
+                            <input type="text" id="company" name="company" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                        </div>
+                        <div>
+                            <label for="inquiry_type" class="block text-sm font-medium text-gray-700 mb-2">お問い合わせ種別</label>
+                            <select id="inquiry_type" name="inquiry_type" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                                <option value="">選択してください</option>
+                                <option value="freelance">フリーランス登録</option>
+                                <option value="partnership">法人協業・パートナーシップ</option>
+                                <option value="project">プロジェクト依頼</option>
+                                <option value="employment">正社員応募</option>
+                                <option value="other">その他のお問い合わせ</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="technology" class="block text-sm font-medium text-gray-700 mb-2">関心のある技術領域（複数選択可）</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="web" class="rounded text-blue-600">
+                                <span class="text-sm">Web開発</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="mobile" class="rounded text-blue-600">
+                                <span class="text-sm">モバイル開発</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="ai" class="rounded text-blue-600">
+                                <span class="text-sm">AI・機械学習</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="data" class="rounded text-blue-600">
+                                <span class="text-sm">データ分析・BI</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="cloud" class="rounded text-blue-600">
+                                <span class="text-sm">クラウド・インフラ</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="uiux" class="rounded text-blue-600">
+                                <span class="text-sm">UI/UXデザイン</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="devops" class="rounded text-blue-600">
+                                <span class="text-sm">DevOps</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="technology" value="other" class="rounded text-blue-600">
+                                <span class="text-sm">その他</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">メッセージ</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                  placeholder="プロジェクトの詳細、ご希望の条件、ご質問などをお聞かせください..."></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" 
+                                class="btn-primary text-white px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            お問い合わせを送信
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="mt-12 text-center fade-in">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Email</h3>
+                        <p class="text-gray-600">info@rubato-tech.co.jp</p>
+                        <p class="text-sm text-gray-500 mt-1">管理者: arita@rubato-tech.co.jp</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Phone</h3>
+                        <p class="text-gray-600">03-1234-5678</p>
+                        <p class="text-sm text-gray-500 mt-1">平日 9:00 - 18:00</p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Response Time</h3>
+                        <p class="text-gray-600">24時間以内</p>
+                        <p class="text-sm text-gray-500 mt-1">お急ぎの場合はお電話ください</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="./rubato_logo_256.png" alt="Rubato" class="h-8 w-auto brightness-0 invert">
+                        <span class="ml-2 text-xl font-bold">Rubato</span>
+                    </div>
+                    <p class="text-blue-100 text-sm leading-relaxed">
+                        データとハーモニーで、未来のテクノロジーソリューションを創造する革新的なIT企業です。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-blue-100">
+                        <li><a href="#services" class="hover:text-white transition-colors">フリーランス支援</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">法人協業</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">システム開発</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">AI・機械学習</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Technology</h4>
+                    <ul class="space-y-2 text-sm text-blue-100">
+                        <li>Java / .NET / PHP / Python</li>
+                        <li>React / Vue.js / Angular</li>
+                        <li>AWS / Azure / GCP</li>
+                        <li>AI / Machine Learning / BI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-sm text-blue-100">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-envelope w-4"></i>
+                            <span>info@rubato-tech.co.jp</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-phone w-4"></i>
+                            <span>03-1234-5678</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt w-4 mt-1"></i>
+                            <span>東京都渋谷区神宮前6-23-4<br>桑野ビル2階</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white border-opacity-20 mt-12 pt-8 text-center">
+                <p class="text-blue-100 text-sm">
+                    © 2025 株式会社Rubato. All rights reserved. | DATA IN HARMONY
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all opacity-0 pointer-events-none">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 70;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                backToTop.classList.add('opacity-100', 'pointer-events-auto');
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                // Mobile menu functionality can be added here
+                alert('モバイルメニューは実装中です');
+            });
+        }
+
+        // Form submission handling
+        const contactForm = document.querySelector('form[action*="formspree"]');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>送信中...';
+                submitBtn.disabled = true;
+                
+                // Re-enable button after 3 seconds (fallback)
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
+        }
+
+        // Add loading animation to tech icons
+        document.querySelectorAll('.tech-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.2) rotate(5deg)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Initialize all animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add stagger effect to cards
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Initialize pulse dots
+            const pulseDots = document.querySelectorAll('.pulse-dot');
+            pulseDots.forEach((dot, index) => {
+                dot.style.animationDelay = `${index * 0.5}s`;
+            });
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDkBuigXWDfK%2BIUBc8G23D4z6kYxhpOhbnPAZ%2BN%2F6IpH0gDCEMvflERXvEGItllKAQlJPFUcWgCV4rcyF7JlEX1lq0wO8M%2BtNEHk%2BCk9Iw2e0yLlUw48m2XyX%2F0uZ63I1bD3WhNJTmzadthJLzp95R%2B1dcabM0NxIb2feWfPzvNkxXCICbqjWPfbcLfi4tFZHZAFdyR2eEFZkMsp%2BLwtQb3ITYb4Gky6PAGmhtEeZ%2BW9sHSsMhfLKAwLNyJojFMQUIPm6zDJxx2gODrLLb8JwOm6fgGAFxBAIpOL3JJ0idsiJf%2B%2FgA0X%2Foz7NeHtVs3IJ%2FG2gCFzyav5LKoKXi66J4Uc3DVPDP2TKPOy88iExjin5h404btR3aI9oXta3Q7Y9EB3HaoCbzwZ665r98GODBS2pDhThAucH3O%2F2MgU%2FUfGI5cnaKTJNRTNMuckS%2BbHjeurIaNuEnSqxlYJSeqqXHNjsQYjTkFeIeSemG%2Fc%2BFjepiBr6ljCWPVUiiu6Pihg%2F1A%3D%3D";
+        window.__genspark_locale = "ja-JP";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDkBuigXWDfK+IUBc8G23D4z6kYxhpOhbnPAZ+N/6IpH0gDCEMvflERXvEGItllKAQlJPFUcWgCV4rcyF7JlEX1lq0wO8M+tNEHk+Ck9Iw2e0yLlUw48m2XyX/0uZ63I1bD3WhNJTmzadthJLzp95R+1dcabM0NxIb2feWfPzvNkxXCICbqjWPfbcLfi4tFZHZAFdyR2eEFZkMsp+LwtQb3ITYb4Gky6PAGmhtEeZ+W9sHSsMhfLKAwLNyJojFMQUIPm6zDJxx2gODrLLb8JwOm6fgGAFxBAIpOL3JJ0idsiJf+/gA0X/oz7NeHtVs3IJ/G2gCFzyav5LKoKXi66J4Uc3DVPDP2TKPOy88iExjin5h404btR3aI9oXta3Q7Y9EB3HaoCbzwZ665r98GODBS2pDhThAucH3O/2MgU/UfGI5cnaKTJNRTNMuckS+bHjeurIaNuEnSqxlYJSeqqXHNjsQYjTkFeIeSemG/c+FjepiBr6ljCWPVUiiu6Pihg/1A==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
