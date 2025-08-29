@@ -162,6 +162,12 @@
             background: white;
             color: #333333;
         }
+
+        .form-input option {
+            padding: 8px 12px;
+            color: #333333;
+            background: white;
+        }
         
         .form-input:focus {
             outline: none;
@@ -172,11 +178,6 @@
         .form-textarea {
             min-height: 120px;
             resize: vertical;
-        }        
-        /* selectボックス視認性向上 */
-        select.form-input option {
-            background: white;
-            color: #333333;
         }
         
         @media (max-width: 768px) {
@@ -232,7 +233,7 @@
         <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <img src="https://gensparkstorageprodwest.blob.core.windows.net/web-drive/0519e8d9-6087-45c5-87b6-798ea65d0006/rubato_logo_256.png" alt="株式会社Rubato" class="h-10 w-10">
+                    <img src="./rubato_logo_256.png" alt="株式会社Rubato" class="h-10 w-10">
                     <div>
                         <h1 class="text-xl font-bold text-gradient">Rubato</h1>
                         <p class="text-xs text-gray-300">DATA IN HARMONY</p>
@@ -494,7 +495,7 @@
             </div>
             
             <div class="dark-glass rounded-2xl p-8">
-                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-6" action="/thank-you">
+                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-6">
                     <input type="hidden" name="form-name" value="contact">
                     
                     <div class="grid md:grid-cols-2 gap-6">
@@ -597,9 +598,15 @@
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
+                                <i class="fas fa-phone text-blue-500"></i>
+                                <div>
+                                    <span class="font-medium">TEL:</span> 03-1234-5678
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
                                 <i class="fas fa-envelope text-blue-500"></i>
                                 <div>
-                                    <span class="font-medium">Email:</span> info@rubato-tech.co.jp
+                                    <span class="font-medium">Email:</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90f9fef6ffd0e2e5f2f1e4ffbde4f5f3f8bef3ffbefae0">[email&#160;protected]</a>
                                 </div>
                             </div>
                         </div>
@@ -626,7 +633,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <img src="https://gensparkstorageprodwest.blob.core.windows.net/web-drive/0519e8d9-6087-45c5-87b6-798ea65d0006/rubato_logo_256.png" alt="Rubato Logo" class="h-8 w-8">
+                    <img src="./rubato_logo_256.png" alt="Rubato Logo" class="h-8 w-8">
                     <div>
                         <div class="text-lg font-bold text-gradient">株式会社Rubato</div>
                         <div class="text-sm text-gray-400">DATA IN HARMONY</div>
@@ -640,7 +647,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -690,9 +697,9 @@
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDmBKjHoqPUzMM2QlFyVxA0qi1HsckGnhsodHpoomFms4XRwuJJKpasDnuBH9VFocrdyY55aYiiT3ySBi7GGBdyFzaIfCdHb%2FkYN%2B7NmK7WjxXcv%2FOYKlgCyHoL3YR9N1qWDGLPQ6jyNspnmlx%2Fg25xaiQCARVezY6MgkwZtHElwmXE413vqM4tK6lXTHC8UUI9PuEODmpO3ldKfRy2R%2B%2F0V89PAhk8FjxLhIfoEeP%2BLJLhrBSX00FsTgy3SI9BouMSTQpuCiGbImpkdGo8MQOeN3%2FYv%2BKniXTion98teRkbie4ReyYUsb%2F%2FDBz5cwp%2Ft1qqAz4nJQx3D6IxjjYD%2BUZ%2BmjBYE3i%2B8MKf4lPhZLC6OXL3hEW4RQfSP14T1zKWJoQayDlawK%2FjLWSG4UFJ0VhG%2FOQjJ8h8pnWA3QK1nWNAQm2SDTj9uOkzvSD0pckC9f79T8dpcqwhMry0jr9JqRiTLQDjo7Bd%2F9jmZgGuadvmS3kmCKavCeOjO1yV78WKYvQ%3D%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnn5Wf%2FKlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8%2F18jXh%2BsR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe%2BUu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD%2Bi7cPOeArAsl6T9i8N%2FDe%2BYjXnzJuwXpkqZc7tCw1nIDvSBBE5shs%2BMwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe%2BFM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61%2BhsMMdqeA0YYMD%2B3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs%2Fkp4ZlBZXSegIiIiuO3RDh6mQ5yci7Z8%2BHqz%2BkpXTi46SmD9lPgKSuyMKelK4jdrizFO6L5g3H8NKLcsjslXyIzGSqH1a%2BOXZyFJEKXc%2F7icQ%3D%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDmBKjHoqPUzMM2QlFyVxA0qi1HsckGnhsodHpoomFms4XRwuJJKpasDnuBH9VFocrdyY55aYiiT3ySBi7GGBdyFzaIfCdHb/kYN+7NmK7WjxXcv/OYKlgCyHoL3YR9N1qWDGLPQ6jyNspnmlx/g25xaiQCARVezY6MgkwZtHElwmXE413vqM4tK6lXTHC8UUI9PuEODmpO3ldKfRy2R+/0V89PAhk8FjxLhIfoEeP+LJLhrBSX00FsTgy3SI9BouMSTQpuCiGbImpkdGo8MQOeN3/Yv+KniXTion98teRkbie4ReyYUsb//DBz5cwp/t1qqAz4nJQx3D6IxjjYD+UZ+mjBYE3i+8MKf4lPhZLC6OXL3hEW4RQfSP14T1zKWJoQayDlawK/jLWSG4UFJ0VhG/OQjJ8h8pnWA3QK1nWNAQm2SDTj9uOkzvSD0pckC9f79T8dpcqwhMry0jr9JqRiTLQDjo7Bd/9jmZgGuadvmS3kmCKavCeOjO1yV78WKYvQ==";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnn5Wf/KlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8/18jXh+sR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe+Uu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD+i7cPOeArAsl6T9i8N/De+YjXnzJuwXpkqZc7tCw1nIDvSBBE5shs+MwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe+FM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61+hsMMdqeA0YYMD+3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs/kp4ZlBZXSegIiIiuO3RDh6mQ5yci7Z8+Hqz+kpXTi46SmD9lPgKSuyMKelK4jdrizFO6L5g3H8NKLcsjslXyIzGSqH1a+OXZyFJEKXc/7icQ==";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
