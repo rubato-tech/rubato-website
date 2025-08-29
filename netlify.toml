@@ -1,11 +1,27 @@
 [build]
   publish = "."
 
-[forms]
-  spam_filter = true
+# フォーム処理設定
+[build.processing]
+  skip_processing = false
 
+# フォームを確実に有効化
+[[forms]]
+  name = "contact"
+
+# 送信完了ページのリダイレクト
+[[redirects]]
+  from = "/thanks"
+  to = "/thank-you.html"
+  status = 200
+
+# セキュリティヘッダー（簡素版）
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
+
+# 環境変数
+[context.production.environment]
+  NETLIFY_FORMS_DETECTION = "true"
