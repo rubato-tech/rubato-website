@@ -31,9 +31,21 @@
     <link rel="icon" href="./rubato_favicon.png" type="image/png">
     
     <style>
-        /* Web Fonts - Noto Sans JP and Inter embedded */
-        @import url('data:text/css;charset=utf-8,@font-face{font-family:"Noto Sans JP";src:url("data:application/font-woff2;base64,") format("woff2");font-weight:300 700;font-display:swap;}@font-face{font-family:"Inter";src:url("data:application/font-woff2;base64,") format("woff2");font-weight:300 700;font-display:swap;}');
-
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            line-height: 1.7;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
         /* CSS Variables */
         :root {
             --primary-dark: #1a1a1a;
@@ -46,50 +58,145 @@
             --bg-light: #f7fafc;
         }
         
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Typography */
+        .text-6xl { font-size: 3.75rem; font-weight: 700; }
+        .text-4xl { font-size: 2.25rem; font-weight: 700; }
+        .text-3xl { font-size: 1.875rem; font-weight: 700; }
+        .text-2xl { font-size: 1.5rem; font-weight: 700; }
+        .text-xl { font-size: 1.25rem; font-weight: 500; }
+        .text-lg { font-size: 1.125rem; font-weight: 500; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+        
+        .font-bold { font-weight: 700; }
+        .font-medium { font-weight: 500; }
+        
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         
-        body {
-            font-family: -webkit-system-font, 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo UI', 'MS UI Gothic', sans-serif;
-            line-height: 1.7;
-            color: var(--text-light);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
         
-        .font-inter {
-            font-family: -webkit-system-font, 'San Francisco', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-        }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
         
-        /* Background Gradients */
+        /* Spacing */
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-16 { margin-bottom: 4rem; }
+        
+        /* Colors */
+        .text-white { color: #ffffff; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-400 { color: #9ca3af; }
+        .text-gray-500 { color: #6b7280; }
+        .text-gray-600 { color: #4b5563; }
+        
+        /* Backgrounds */
+        .bg-white { background-color: #ffffff; }
         .gradient-bg {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, #1e293b 100%);
         }
         
-        .accent-gradient {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-teal) 50%, var(--accent-green) 100%);
+        .section-light {
+            background: var(--bg-light);
+            color: var(--primary-dark);
         }
         
-        /* Glass Effects */
         .glass-effect {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .dark-glass {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Hover Effects */
+        /* Borders and Shadows */
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-2xl { border-radius: 1rem; }
+        .rounded-full { border-radius: 9999px; }
+        
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Positioning */
+        .fixed { position: fixed; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .top-0 { top: 0; }
+        .w-full { width: 100%; }
+        .h-10 { height: 2.5rem; }
+        .w-10 { width: 2.5rem; }
+        .min-h-screen { min-height: 100vh; }
+        .z-50 { z-index: 50; }
+        .z-10 { z-index: 10; }
+        
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-x-8 > * + * { margin-left: 2rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-8 > * + * { margin-top: 2rem; }
+        
+        /* Custom Styles */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            color: white;
+        }
+        
         .hover-lift {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -99,40 +206,44 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
         }
         
-        /* Text Effects */
-        .text-gradient {
+        .tech-icon {
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 16px;
         }
         
-        /* Button Styles */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-            color: white;
-            padding: 12px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
+            background: white;
+            color: #333;
         }
         
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            color: white;
-            text-decoration: none;
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
         }
         
-        /* Section Styles */
-        .section-light {
-            background: var(--bg-light);
-            color: var(--primary-dark);
+        .form-input option {
+            color: #333;
+            background: white;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
         }
         
         /* Animations */
@@ -153,236 +264,227 @@
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
         
-        /* Tech Icon */
-        .tech-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-            border-radius: 12px;
+        /* Navigation */
+        .nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .hidden { display: none; }
+        
+        /* Hero Background Effects */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .blur-circle-1 {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 24rem;
+            height: 24rem;
+            background: #3b82f6;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .blur-circle-2 {
+            position: absolute;
+            bottom: 25%;
+            right: 25%;
+            width: 24rem;
+            height: 24rem;
+            background: #14b8a6;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        /* Technology Cards */
+        .tech-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        .tech-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Feature Icons */
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #14b8a6);
+            border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
-            margin-bottom: 16px;
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
         
-        /* Form Styles */
-        .form-input, .form-textarea, .form-select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-            color: #333333;
-        }
-        
-        .form-input:focus, .form-textarea:focus, .form-select:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
-        }
-        
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-            font-family: inherit;
-        }
-        
-        .form-select option {
-            color: #333333;
-            background: white;
-            padding: 8px;
-        }
-        
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        
-        .mb-2 { margin-bottom: 8px; }
-        .mb-4 { margin-bottom: 16px; }
-        .mb-6 { margin-bottom: 24px; }
-        .mb-8 { margin-bottom: 32px; }
-        .mb-12 { margin-bottom: 48px; }
-        .mb-16 { margin-bottom: 64px; }
-        
-        .mt-4 { margin-top: 16px; }
-        .mt-8 { margin-top: 32px; }
-        
-        .py-3 { padding: 12px 0; }
-        .py-4 { padding: 16px 0; }
-        .py-8 { padding: 32px 0; }
-        .py-12 { padding: 48px 0; }
-        .py-16 { padding: 64px 0; }
-        .py-20 { padding: 80px 0; }
-        
-        .px-4 { padding: 0 16px; }
-        .px-6 { padding: 0 24px; }
-        .px-8 { padding: 0 32px; }
-        .px-12 { padding: 0 48px; }
-        
-        .p-6 { padding: 24px; }
-        .p-8 { padding: 32px; }
-        
-        /* Grid System */
-        .grid {
-            display: grid;
-            gap: 24px;
-        }
-        
-        .grid-cols-1 { grid-template-columns: 1fr; }
-        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-        
-        /* Flexbox */
-        .flex { display: flex; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .items-start { align-items: flex-start; }
-        .justify-center { justify-content: center; }
-        .justify-between { justify-content: space-between; }
-        .space-x-2 > * + * { margin-left: 8px; }
-        .space-x-3 > * + * { margin-left: 12px; }
-        .space-x-4 > * + * { margin-left: 16px; }
-        .space-x-8 > * + * { margin-left: 32px; }
-        .space-y-2 > * + * { margin-top: 8px; }
-        .space-y-4 > * + * { margin-top: 16px; }
-        .space-y-6 > * + * { margin-top: 24px; }
-        .space-y-8 > * + * { margin-top: 32px; }
-        
-        /* Typography */
-        .text-xs { font-size: 12px; }
-        .text-sm { font-size: 14px; }
-        .text-base { font-size: 16px; }
-        .text-lg { font-size: 18px; }
-        .text-xl { font-size: 20px; }
-        .text-2xl { font-size: 24px; }
-        .text-3xl { font-size: 30px; }
-        .text-4xl { font-size: 36px; }
-        .text-6xl { font-size: 60px; }
-        
-        .font-medium { font-weight: 500; }
-        .font-bold { font-weight: 700; }
-        
-        /* Colors */
-        .text-white { color: #ffffff; }
-        .text-gray-300 { color: #d1d5db; }
-        .text-gray-400 { color: #9ca3af; }
-        .text-gray-500 { color: #6b7280; }
-        .text-gray-600 { color: #4b5563; }
-        .text-blue-500 { color: #3b82f6; }
-        .text-blue-600 { color: #2563eb; }
-        .text-red-400 { color: #f87171; }
-        
-        .bg-white { background-color: #ffffff; }
-        .bg-gray-100 { background-color: #f3f4f6; }
-        
-        /* Sizing */
-        .w-full { width: 100%; }
-        .w-8 { width: 32px; }
-        .w-10 { width: 40px; }
-        .w-12 { width: 48px; }
-        .h-8 { height: 32px; }
-        .h-10 { height: 40px; }
-        .h-12 { height: 48px; }
-        .min-h-screen { min-height: 100vh; }
-        
-        /* Positioning */
-        .fixed { position: fixed; }
-        .relative { position: relative; }
-        .absolute { position: absolute; }
-        .top-0 { top: 0; }
-        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-        .z-10 { z-index: 10; }
-        .z-50 { z-index: 50; }
-        
-        /* Borders */
-        .rounded-lg { border-radius: 8px; }
-        .rounded-xl { border-radius: 12px; }
-        .rounded-2xl { border-radius: 16px; }
-        .rounded-full { border-radius: 9999px; }
-        
-        /* Shadow */
-        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        
-        /* Display */
-        .hidden { display: none; }
-        .block { display: block; }
-        .inline-block { display: inline-block; }
-        
-        /* Overflow */
-        .overflow-hidden { overflow: hidden; }
-        
-        /* Transitions */
-        .transition-colors { transition: color 0.3s ease; }
-        .transition-all { transition: all 0.3s ease; }
-        
-        /* Hover States */
-        .hover\:text-white:hover { color: #ffffff; }
-        .hover\:bg-white:hover { background-color: #ffffff; }
-        .hover\:bg-gray-100:hover { background-color: #f3f4f6; }
-        .hover\:bg-opacity-10:hover { background-color: rgba(255, 255, 255, 0.1); }
-        
-        /* Opacity */
-        .opacity-10 { opacity: 0.1; }
-        
-        /* Blur */
-        .blur-3xl { filter: blur(64px); }
-        
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .md\:flex { display: flex; }
-            .md\:hidden { display: none; }
-            .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-            .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-            .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-            .md\:flex-row { flex-direction: row; }
-        }
-        
-        @media (min-width: 1024px) {
-            .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-        }
-        
-        @media (max-width: 768px) {
-            .text-6xl { font-size: 2.5rem; }
-            .text-4xl { font-size: 2rem; }
-            .px-8 { padding-left: 1rem; padding-right: 1rem; }
-            .container { padding: 0 16px; }
-        }
-
-        /* Form specific styles */
-        .form-checkbox {
-            margin-right: 8px;
-            transform: scale(1.2);
-        }
-
-        .form-label {
-            color: #ffffff;
+        .feature-item {
             display: flex;
-            align-items: center;
-            font-size: 14px;
-            margin-bottom: 4px;
+            align-items: flex-start;
+            gap: 1rem;
         }
-
+        
+        /* Contact Form Styling */
+        .contact-form {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .required {
+            color: #ef4444;
+        }
+        
         .checkbox-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 0.5rem;
         }
-
-        @media (min-width: 768px) {
-            .checkbox-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 0.875rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        
+        /* Company Info */
+        .company-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-icon {
+            color: #3b82f6;
+            margin-top: 0.125rem;
+            font-size: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-card {
+            background: linear-gradient(135deg, #3b82f6, #14b8a6);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: #3b82f6;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            background: #f9fafb;
+            transform: translateY(-1px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .text-6xl { font-size: 2.5rem; }
+            .text-4xl { font-size: 2rem; }
+            .px-6 { padding-left: 1rem; padding-right: 1rem; }
+            .grid-cols-3 { grid-template-columns: 1fr; }
+            .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-cols-2 { grid-template-columns: 1fr; }
+            .hidden-mobile { display: none; }
+            .checkbox-grid { grid-template-columns: 1fr; }
+            .nav-desktop { display: none; }
+        }
+        
+        @media (min-width: 769px) {
+            .grid-md-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-md-cols-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-md-cols-4 { grid-template-columns: repeat(4, 1fr); }
+            .checkbox-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-lg-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        /* Utility Classes */
+        .max-w-2xl { max-width: 42rem; margin-left: auto; margin-right: auto; }
+        .max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; }
+        .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
+        .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
+        
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        
+        /* Smooth Transitions */
+        a, button, .form-input, .service-card, .tech-card {
+            transition: all 0.3s ease;
         }
     </style>
     
@@ -428,7 +530,7 @@
 <body>
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-effect">
-        <nav class="container py-4">
+        <nav class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <img src="./rubato_logo_256.png" alt="株式会社Rubato" class="h-10 w-10">
@@ -437,55 +539,57 @@
                         <p class="text-xs text-gray-300">DATA IN HARMONY</p>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-300 hover:text-white transition-colors nav-link">サービス</a>
-                    <a href="#technology" class="text-gray-300 hover:text-white transition-colors nav-link">技術領域</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors nav-link">会社概要</a>
-                    <a href="#contact" class="btn-primary nav-link">お問い合わせ</a>
+                <div class="nav-desktop flex items-center space-x-8">
+                    <a href="#services" class="nav-link">サービス</a>
+                    <a href="#technology" class="nav-link">技術領域</a>
+                    <a href="#about" class="nav-link">会社概要</a>
+                    <a href="#contact" class="btn-primary">お問い合わせ</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative">
+        <div class="hero-bg">
+            <div class="blur-circle-1"></div>
+            <div class="blur-circle-2"></div>
         </div>
-        <div class="container text-center relative z-10">
+        <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
             <h1 class="text-6xl font-bold mb-6 fade-in">
                 技術とサポートで<br>
                 <span class="text-gradient">ビジネスの成功を支える</span><br>
                 信頼できるパートナー
             </h1>
-            <p class="text-xl text-gray-300 mb-8 fade-in stagger-1">
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto fade-in stagger-1">
                 システム開発から技術支援まで、幅広いITソリューションで<br>
                 お客様のプロジェクトを成功に導きます
             </p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 fade-in stagger-2">
-                <a href="#contact" class="btn-primary nav-link">
-                    ✉️ お問い合わせ
-                </a>
-                <a href="#services" class="glass-effect px-8 py-3 rounded-lg text-white hover:bg-white hover:bg-opacity-10 transition-all nav-link">
-                    サービス詳細
-                </a>
+            <div class="flex flex-col gap-4 justify-center fade-in stagger-2" style="gap: 1rem;">
+                <div>
+                    <a href="#contact" class="btn-primary">
+                        ✉ お問い合わせ
+                    </a>
+                    <a href="#services" class="glass-effect" style="padding: 0.75rem 2rem; border-radius: 0.5rem; color: white; text-decoration: none; margin-left: 1rem; display: inline-block; transition: all 0.3s ease;">
+                        サービス詳細
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 section-light">
-        <div class="container">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4">サービス内容</h2>
-                <p class="text-xl text-gray-600">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     多様な技術領域でお客様のニーズにお応えします
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3">
-                <div class="bg-white rounded-xl p-8 shadow-lg hover-lift">
+            <div class="grid gap-8 grid-md-cols-3">
+                <div class="service-card">
                     <div class="tech-icon">
                         💻
                     </div>
@@ -500,7 +604,7 @@
                     </ul>
                 </div>
                 
-                <div class="bg-white rounded-xl p-8 shadow-lg hover-lift">
+                <div class="service-card">
                     <div class="tech-icon">
                         👥
                     </div>
@@ -515,7 +619,7 @@
                     </ul>
                 </div>
                 
-                <div class="bg-white rounded-xl p-8 shadow-lg hover-lift">
+                <div class="service-card">
                     <div class="tech-icon">
                         📊
                     </div>
@@ -535,7 +639,7 @@
 
     <!-- Technology Section -->
     <section id="technology" class="py-20 gradient-bg">
-        <div class="container">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4">対応技術領域</h2>
                 <p class="text-xl text-gray-300">
@@ -543,51 +647,51 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-4">
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">☕</div>
+            <div class="grid gap-6 grid-md-cols-4">
+                <div class="tech-card">
+                    <span class="tech-emoji">☕</span>
                     <h3 class="text-xl font-bold mb-2">Java</h3>
                     <p class="text-gray-300 text-sm">Spring Boot, Spring MVC</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🔷</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🔷</span>
                     <h3 class="text-xl font-bold mb-2">.NET</h3>
                     <p class="text-gray-300 text-sm">ASP.NET Core, C#</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🐘</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🐘</span>
                     <h3 class="text-xl font-bold mb-2">PHP</h3>
                     <p class="text-gray-300 text-sm">Laravel, Symfony</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🐍</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🐍</span>
                     <h3 class="text-xl font-bold mb-2">Python</h3>
                     <p class="text-gray-300 text-sm">Django, Flask, FastAPI</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">⚛️</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">⚛️</span>
                     <h3 class="text-xl font-bold mb-2">JavaScript</h3>
                     <p class="text-gray-300 text-sm">React, Vue.js, Node.js</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">☁️</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">☁️</span>
                     <h3 class="text-xl font-bold mb-2">Cloud</h3>
                     <p class="text-gray-300 text-sm">AWS, Azure, GCP</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🤖</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🤖</span>
                     <h3 class="text-xl font-bold mb-2">AI/ML</h3>
                     <p class="text-gray-300 text-sm">TensorFlow, PyTorch</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">📊</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">📈</span>
                     <h3 class="text-xl font-bold mb-2">Data</h3>
                     <p class="text-gray-300 text-sm">BI, ETL, DWH</p>
                 </div>
@@ -597,16 +701,14 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 section-light">
-        <div class="container">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid gap-16 items-center grid-lg-cols-2">
                 <div>
                     <h2 class="text-4xl font-bold mb-8">Rubatoの強み</h2>
                     
                     <div class="space-y-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                🤝
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤝</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">手厚いサポート体制</h3>
                                 <p class="text-gray-600">
@@ -615,10 +717,8 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                ⚡
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">フットワークの軽さ</h3>
                                 <p class="text-gray-600">
@@ -627,10 +727,8 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                ⚙️
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚙️</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">幅広い技術対応</h3>
                                 <p class="text-gray-600">
@@ -639,10 +737,8 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                🏢
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🏢</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">大手企業との直取引実績</h3>
                                 <p class="text-gray-600">
@@ -667,12 +763,12 @@
                         </ul>
                     </div>
                     
-                    <div class="bg-gradient-to-r from-blue-500 to-teal-500 p-8 rounded-xl text-white">
+                    <div class="cta-card">
                         <h3 class="text-2xl font-bold mb-4">お気軽にご相談ください</h3>
                         <p class="mb-6">
                             プロジェクトの規模や内容に関わらず、まずはお気軽にご相談ください。最適なソリューションをご提案いたします。
                         </p>
-                        <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors nav-link">
+                        <a href="#contact" class="cta-btn">
                             今すぐ相談する
                         </a>
                     </div>
@@ -683,7 +779,7 @@
 
     <!-- Contact Form Section -->
     <section id="contact" class="py-20 gradient-bg">
-        <div class="container">
+        <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4">お問い合わせ</h2>
                 <p class="text-xl text-gray-300">
@@ -691,29 +787,44 @@
                 </p>
             </div>
             
-            <div class="dark-glass rounded-2xl p-8" style="max-width: 800px; margin: 0 auto;">
-                <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+            <div class="contact-form">
+                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+                    <input type="hidden" name="form-name" value="contact">
+                    
+                    <div class="grid gap-6 grid-md-cols-2">
+                        <div class="form-group">
+                            <label class="form-label">お名前 <span class="required">*</span></label>
+                            <input type="text" name="name" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">メールアドレス <span class="required">*</span></label>
+                            <input type="email" name="email" required class="form-input">
+                        </div>
+                    </div>
+                    
+                    <div class="dark-glass rounded-2xl p-8">
+                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-6">
                     <input type="hidden" name="form-name" value="contact">
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-white">お名前 <span class="text-red-400">*</span></label>
+                            <label class="block text-sm font-medium mb-2">お名前 <span class="text-red-400">*</span></label>
                             <input type="text" name="name" required class="form-input">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-white">メールアドレス <span class="text-red-400">*</span></label>
+                            <label class="block text-sm font-medium mb-2">メールアドレス <span class="text-red-400">*</span></label>
                             <input type="email" name="email" required class="form-input">
                         </div>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-white">電話番号</label>
+                            <label class="block text-sm font-medium mb-2">電話番号</label>
                             <input type="tel" name="phone" class="form-input">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-white">お問い合わせ種別</label>
-                            <select name="inquiry_type" class="form-input form-select">
+                            <label class="block text-sm font-medium mb-2">お問い合わせ種別</label>
+                            <select name="inquiry_type" class="form-input">
                                 <option value="">選択してください</option>
                                 <option value="フリーランス登録">フリーランス登録</option>
                                 <option value="法人協業・パートナーシップ">法人協業・パートナーシップ</option>
@@ -726,43 +837,48 @@
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-white">技術領域（複数選択可）</label>
-                        <div class="checkbox-grid">
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="Java" class="form-checkbox">Java
+                        <label class="block text-sm font-medium mb-2">技術領域（複数選択可）</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="Java" class="mr-2">Java
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value=".NET" class="form-checkbox">.NET
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value=".NET" class="mr-2">.NET
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="PHP" class="form-checkbox">PHP
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="PHP" class="mr-2">PHP
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="Python" class="form-checkbox">Python
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="Python" class="mr-2">Python
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="JavaScript" class="form-checkbox">JavaScript
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="JavaScript" class="mr-2">JavaScript
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="AI・データ分析" class="form-checkbox">AI・データ分析
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="AI・データ分析" class="mr-2">AI・データ分析
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="クラウド" class="form-checkbox">クラウド
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="クラウド" class="mr-2">クラウド
                             </label>
-                            <label class="form-label">
-                                <input type="checkbox" name="tech_stack" value="その他" class="form-checkbox">その他
+                            <label class="flex items-center text-white">
+                                <input type="checkbox" name="tech_stack" value="その他" class="mr-2">その他
                             </label>
                         </div>
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-white">メッセージ <span class="text-red-400">*</span></label>
+                        <label class="block text-sm font-medium mb-2">メッセージ <span class="text-red-400">*</span></label>
                         <textarea name="message" required class="form-input form-textarea" placeholder="プロジェクトの詳細、技術要件、期間、予算など、お気軽にご相談内容をお書きください。"></textarea>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <div data-netlify-recaptcha="true"></div>
                     </div>
                     
                     <div class="text-center">
                         <button type="submit" class="btn-primary text-lg px-12 py-4">
-                            ✉️ 送信する
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            送信する
                         </button>
                     </div>
                 </form>
@@ -772,25 +888,31 @@
 
     <!-- Company Info Section -->
     <section class="py-16 section-light">
-        <div class="container">
+        <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold mb-4">会社情報</h2>
             </div>
             
-            <div class="bg-white rounded-xl p-8 shadow-lg" style="max-width: 800px; margin: 0 auto;">
-                <div class="grid md:grid-cols-2 gap-8">
+            <div class="company-card">
+                <div class="grid gap-8 grid-md-cols-2">
                     <div>
                         <h3 class="text-xl font-bold mb-6 text-gradient">株式会社Rubato</h3>
                         <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start space-x-3">
-                                <div class="text-blue-500 mt-1">📍</div>
+                            <div class="info-item">
+                                <span class="info-icon">📍</span>
                                 <div>
                                     <div class="font-medium">所在地</div>
                                     <div>〒124-0022<br>東京都葛飾区奥戸1-22-14</div>
                                 </div>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="text-blue-500">✉️</div>
+                            <div class="info-item">
+                                <span class="info-icon">📞</span>
+                                <div>
+                                    <span class="font-medium">TEL:</span> 03-1234-5678
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">✉️</span>
                                 <div>
                                     <span class="font-medium">Email:</span> info@rubato-tech.co.jp
                                 </div>
@@ -816,10 +938,10 @@
 
     <!-- Footer -->
     <footer class="gradient-bg py-12">
-        <div class="container">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <img src="./rubato_logo_256.png" alt="Rubato Logo" class="h-8 w-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col items-center justify-between gap-4" style="flex-direction: column;">
+                <div class="flex items-center space-x-4">
+                    <img src="./rubato_logo_256.png" alt="Rubato Logo" class="h-8 w-8" style="height: 2rem; width: 2rem;">
                     <div>
                         <div class="text-lg font-bold text-gradient">株式会社Rubato</div>
                         <div class="text-sm text-gray-400">DATA IN HARMONY</div>
@@ -834,8 +956,8 @@
 
     <!-- Scripts -->
     <script>
-        // Smooth scrolling for navigation links only (exclude form)
-        document.querySelectorAll('.nav-link[href^="#"]').forEach(anchor => {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -869,20 +991,26 @@
             observer.observe(el);
         });
 
-        // Form submission handler - let Netlify handle it naturally
+        // Form validation
         document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
-            // Let the form submit naturally to Netlify
-            // No preventDefault() here to avoid blocking submission
-            console.log('Form submission initiated');
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const message = document.querySelector('textarea[name="message"]').value.trim();
+            
+            if (!name || !email || !message) {
+                e.preventDefault();
+                alert('必須項目を入力してください。');
+                return false;
+            }
         });
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvlXZKm2%2FkKqaQG63z9dp%2Fx23P4pZDm%2BWhlhjxEi1uEnMkJ7nhPItAis3U2FRAJK43rK%2Bg0L3VVyC3AdLDHXxKL1aZK%2BWy73muSv44delt5GvLS5LjBN%2BieiSQhSOB6vJKCID64DBezO%2Fd%2FGMo%2FK28ZFI3X3gwDIJpzDtjmOUVAkiGVTv3lZdQIAvZac7iqr7QLyB8bSk1Y8J907LKSHCb06k80hIpbssRorRqUR%2BSSf701IY26IyzRPgZBZHNzi4RZJ%2Ft4HgEi4EP2oqCGQfpA9LRMnHCeu5N6bWsioU1kZ6XRya6kIEqtbHYHpxVg6AsRkPl7ByRH4DJxNWLV63rwtEFC%2F9a8oB%2Fmt6hWFuMhBStn4S6rmuOm13PGilQ0w6KyYhQTwYD5NkwhMYRlPtiHkShBHwhhGYi2LM%2B2eZhc%2B%2Fgtk5%2Fcw93kP28iZNE%2BkU%2FGXTMymHBXorST2R5gcS8NVN9mG26DHB5wR9i2mG43kMJWOKEtYcZ1Hb9IU8lcNEg%3D%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnZOl7cb8b8obczp%2BLQ0AGK9IujSiUEB0critgxb3%2FHOfj9WNuZJ5TQFI1R%2FdEHd4P9pnP9GB8XmrMSrVp%2BWzE6FAep6347pI1Vmzz4VOtuGDh1qdNttbgxFIIR%2F36YUKfSdovDwHuIZ8gTPoZ5r8JDl6yV7W163WEVBLRC74L0tSV7VJydHMsLaMLdonQMdwfHrn%2B3iY1SvokJikToxt%2BFDQq%2BjifZWq5fJAG8Gsk%2FB4n847mrjLHt%2BFLCFJMqohfDl1Ztd8l4qyD4ciuEhY3P5M9BLr1DFCso2Thg774x%2Bnb%2F93pPV40wSqIHKQtOKOyYMYFuVDklg34iMy2%2BmyeyKp1%2FI9FVH4QkX0UB2XDzz9litRhEzfDNiX4XKwSAAKdHRVvQx2Hi2gqWekN1MLD23zFr40XzmgihtAwFLmgcMAzLW3TK%2BOBAC6NSY%2Fueu6nDRdsaRwk5gBlOfNlbmGM16RvawLISJzFlcAK7hqB9pCxQNSKwauyan6OIJTmUdceaxW0O1PI%2B%2FVfMAx5ZBvSk%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvlXZKm2/kKqaQG63z9dp/x23P4pZDm+WhlhjxEi1uEnMkJ7nhPItAis3U2FRAJK43rK+g0L3VVyC3AdLDHXxKL1aZK+Wy73muSv44delt5GvLS5LjBN+ieiSQhSOB6vJKCID64DBezO/d/GMo/K28ZFI3X3gwDIJpzDtjmOUVAkiGVTv3lZdQIAvZac7iqr7QLyB8bSk1Y8J907LKSHCb06k80hIpbssRorRqUR+SSf701IY26IyzRPgZBZHNzi4RZJ/t4HgEi4EP2oqCGQfpA9LRMnHCeu5N6bWsioU1kZ6XRya6kIEqtbHYHpxVg6AsRkPl7ByRH4DJxNWLV63rwtEFC/9a8oB/mt6hWFuMhBStn4S6rmuOm13PGilQ0w6KyYhQTwYD5NkwhMYRlPtiHkShBHwhhGYi2LM+2eZhc+/gtk5/cw93kP28iZNE+kU/GXTMymHBXorST2R5gcS8NVN9mG26DHB5wR9i2mG43kMJWOKEtYcZ1Hb9IU8lcNEg==";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnZOl7cb8b8obczp+LQ0AGK9IujSiUEB0critgxb3/HOfj9WNuZJ5TQFI1R/dEHd4P9pnP9GB8XmrMSrVp+WzE6FAep6347pI1Vmzz4VOtuGDh1qdNttbgxFIIR/36YUKfSdovDwHuIZ8gTPoZ5r8JDl6yV7W163WEVBLRC74L0tSV7VJydHMsLaMLdonQMdwfHrn+3iY1SvokJikToxt+FDQq+jifZWq5fJAG8Gsk/B4n847mrjLHt+FLCFJMqohfDl1Ztd8l4qyD4ciuEhY3P5M9BLr1DFCso2Thg774x+nb/93pPV40wSqIHKQtOKOyYMYFuVDklg34iMy2+myeyKp1/I9FVH4QkX0UB2XDzz9litRhEzfDNiX4XKwSAAKdHRVvQx2Hi2gqWekN1MLD23zFr40XzmgihtAwFLmgcMAzLW3TK+OBAC6NSY/ueu6nDRdsaRwk5gBlOfNlbmGM16RvawLISJzFlcAK7hqB9pCxQNSKwauyan6OIJTmUdceaxW0O1PI+/VfMAx5ZBvSk=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
