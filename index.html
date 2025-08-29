@@ -152,8 +152,6 @@
             margin-bottom: 16px;
         }
         
-        
-        /* フォーム要素の視認性改善 */
         .form-input {
             width: 100%;
             padding: 12px 16px;
@@ -161,41 +159,24 @@
             border-radius: 8px;
             font-size: 16px;
             transition: all 0.3s ease;
-            background: #ffffff !important;  /* 背景を確実に白に */
-            color: #1a202c !important;       /* 文字を濃いグレーに */
+            background: white;
+            color: #333333;
         }
+        
         .form-input:focus {
             outline: none;
             border-color: var(--accent-blue);
             box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
-            background: #ffffff !important;  /* フォーカス時も白背景 */
         }
-
-        /* selectボックスの特別対応 */
-        select.form-input {
-            background: #ffffff !important;
-            color: #1a202c !important;
-            cursor: pointer;
-        }
-        select.form-input option {
-            background: #ffffff !important;
-            color: #1a202c !important;
-            padding: 8px 12px;
-        }
-
-        /* textareaの視認性向上 */
-        textarea.form-input {
-            background: #ffffff !important;
-            color: #1a202c !important;
-            min-height: 120px;
-            resize: vertical;
-        }
-
+        
         .form-textarea {
             min-height: 120px;
             resize: vertical;
-            background: #ffffff !important;
-            color: #1a202c !important;
+        }        
+        /* selectボックス視認性向上 */
+        select.form-input option {
+            background: white;
+            color: #333333;
         }
         
         @media (max-width: 768px) {
@@ -717,4 +698,8 @@
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
             "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnn5Wf%2FKlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8%2F18jXh%2BsR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe%2BUu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD%2Bi7cPOeArAsl6T9i8N%2FDe%2BYjXnzJuwXpkqZc7tCw1nIDvSBBE5shs%2BMwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe%2BFM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61%2BhsMMdqeA0YYMD%2B3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs%2Fkp4ZlBZXSegIiIiuO3RDh6mQ5yci7Z8%2BHqz%2BkpXTi46SmD9lPgKSuyMKelK4jdrizFO6L5g3H8NKLcsjslXyIzGSqH1a%2BOXZyFJEKXc%2F7icQ%3D%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnn5Wf/KlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8/18jXh+sR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe+Uu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD+i7cPOeArAsl6T9i8N/De+YjXnzJuwXpkqZc7tCw1nIDvSBBE5shs+MwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe+FM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61+hsMMdqeA0YYMD+3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs/kp4
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnn5Wf/KlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8/18jXh+sR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe+Uu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD+i7cPOeArAsl6T9i8N/De+YjXnzJuwXpkqZc7tCw1nIDvSBBE5shs+MwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe+FM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61+hsMMdqeA0YYMD+3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs/kp4ZlBZXSegIiIiuO3RDh6mQ5yci7Z8+Hqz+kpXTi46SmD9lPgKSuyMKelK4jdrizFO6L5g3H8NKLcsjslXyIzGSqH1a+OXZyFJEKXc/7icQ==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
