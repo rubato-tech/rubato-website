@@ -30,12 +30,23 @@
     <!-- Favicon -->
     <link rel="icon" href="./rubato_favicon.png" type="image/png">
     
-    <!-- Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
     <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            line-height: 1.7;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* CSS Variables */
         :root {
             --primary-dark: #1a1a1a;
             --secondary-dark: #2d3748;
@@ -47,29 +58,75 @@
             --bg-light: #f7fafc;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Typography */
+        .text-6xl { font-size: 3.75rem; font-weight: 700; }
+        .text-4xl { font-size: 2.25rem; font-weight: 700; }
+        .text-3xl { font-size: 1.875rem; font-weight: 700; }
+        .text-2xl { font-size: 1.5rem; font-weight: 700; }
+        .text-xl { font-size: 1.25rem; font-weight: 500; }
+        .text-lg { font-size: 1.125rem; font-weight: 500; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+        
+        .font-bold { font-weight: 700; }
+        .font-medium { font-weight: 500; }
+        
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.7;
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
         
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
         
+        /* Spacing */
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-16 { margin-bottom: 4rem; }
+        
+        /* Colors */
+        .text-white { color: #ffffff; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-400 { color: #9ca3af; }
+        .text-gray-500 { color: #6b7280; }
+        .text-gray-600 { color: #4b5563; }
+        
+        /* Backgrounds */
+        .bg-white { background-color: #ffffff; }
         .gradient-bg {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, #1e293b 100%);
         }
         
-        .accent-gradient {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-teal) 50%, var(--accent-green) 100%);
+        .section-light {
+            background: var(--bg-light);
+            color: var(--primary-dark);
         }
         
         .glass-effect {
@@ -84,15 +141,36 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .hover-lift {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Borders and Shadows */
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-2xl { border-radius: 1rem; }
+        .rounded-full { border-radius: 9999px; }
+        
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
-        }
+        /* Positioning */
+        .fixed { position: fixed; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .top-0 { top: 0; }
+        .w-full { width: 100%; }
+        .h-10 { height: 2.5rem; }
+        .w-10 { width: 2.5rem; }
+        .min-h-screen { min-height: 100vh; }
+        .z-50 { z-index: 50; }
+        .z-10 { z-index: 10; }
         
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-x-8 > * + * { margin-left: 2rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-8 > * + * { margin-top: 2rem; }
+        
+        /* Custom Styles */
         .text-gradient {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
             -webkit-background-clip: text;
@@ -103,12 +181,14 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
             color: white;
-            padding: 12px 32px;
-            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
+            border: none;
+            cursor: pointer;
         }
         
         .btn-primary:hover {
@@ -117,11 +197,56 @@
             color: white;
         }
         
-        .section-light {
-            background: var(--bg-light);
-            color: var(--primary-dark);
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: #333;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+        
+        .form-input option {
+            color: #333;
+            background: white;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -139,69 +264,227 @@
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
         
-        .tech-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-            border-radius: 12px;
+        /* Navigation */
+        .nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .hidden { display: none; }
+        
+        /* Hero Background Effects */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .blur-circle-1 {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 24rem;
+            height: 24rem;
+            background: #3b82f6;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .blur-circle-2 {
+            position: absolute;
+            bottom: 25%;
+            right: 25%;
+            width: 24rem;
+            height: 24rem;
+            background: #14b8a6;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        /* Technology Cards */
+        .tech-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        .tech-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Feature Icons */
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #14b8a6);
+            border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
-            margin-bottom: 16px;
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
         
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
         
-        /* フォーム要素の視認性改善 */
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 16px;
+        /* Contact Form Styling */
+        .contact-form {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .required {
+            color: #ef4444;
+        }
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 0.875rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        
+        /* Company Info */
+        .company-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-icon {
+            color: #3b82f6;
+            margin-top: 0.125rem;
+            font-size: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-card {
+            background: linear-gradient(135deg, #3b82f6, #14b8a6);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: #3b82f6;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
             transition: all 0.3s ease;
-            background: #ffffff !important;  /* 背景を確実に白に */
-            color: #1a202c !important;       /* 文字を濃いグレーに */
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
-            background: #ffffff !important;  /* フォーカス時も白背景 */
-        }
-
-        /* selectボックスの特別対応 */
-        select.form-input {
-            background: #ffffff !important;
-            color: #1a202c !important;
-            cursor: pointer;
-        }
-        select.form-input option {
-            background: #ffffff !important;
-            color: #1a202c !important;
-            padding: 8px 12px;
-        }
-
-        /* textareaの視認性向上 */
-        textarea.form-input {
-            background: #ffffff !important;
-            color: #1a202c !important;
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-            background: #ffffff !important;
-            color: #1a202c !important;
         }
         
+        .cta-btn:hover {
+            background: #f9fafb;
+            transform: translateY(-1px);
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .text-6xl { font-size: 2.5rem; }
             .text-4xl { font-size: 2rem; }
-            .px-8 { padding-left: 1rem; padding-right: 1rem; }
+            .px-6 { padding-left: 1rem; padding-right: 1rem; }
+            .grid-cols-3 { grid-template-columns: 1fr; }
+            .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-cols-2 { grid-template-columns: 1fr; }
+            .hidden-mobile { display: none; }
+            .checkbox-grid { grid-template-columns: 1fr; }
+            .nav-desktop { display: none; }
+        }
+        
+        @media (min-width: 769px) {
+            .grid-md-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-md-cols-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-md-cols-4 { grid-template-columns: repeat(4, 1fr); }
+            .checkbox-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-lg-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        /* Utility Classes */
+        .max-w-2xl { max-width: 42rem; margin-left: auto; margin-right: auto; }
+        .max-w-3xl { max-width: 48rem; margin-left: auto; margin-right: auto; }
+        .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
+        .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
+        
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        
+        /* Smooth Transitions */
+        a, button, .form-input, .service-card, .tech-card {
+            transition: all 0.3s ease;
         }
     </style>
     
@@ -226,7 +509,6 @@
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+81-3-1234-5678",
             "contactType": "customer service",
             "availableLanguage": "Japanese",
             "email": "info@rubato-tech.co.jp"
@@ -257,10 +539,10 @@
                         <p class="text-xs text-gray-300">DATA IN HARMONY</p>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-300 hover:text-white transition-colors">サービス</a>
-                    <a href="#technology" class="text-gray-300 hover:text-white transition-colors">技術領域</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">会社概要</a>
+                <div class="nav-desktop flex items-center space-x-8">
+                    <a href="#services" class="nav-link">サービス</a>
+                    <a href="#technology" class="nav-link">技術領域</a>
+                    <a href="#about" class="nav-link">会社概要</a>
                     <a href="#contact" class="btn-primary">お問い合わせ</a>
                 </div>
             </div>
@@ -268,10 +550,10 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative">
+        <div class="hero-bg">
+            <div class="blur-circle-1"></div>
+            <div class="blur-circle-2"></div>
         </div>
         <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
             <h1 class="text-6xl font-bold mb-6 fade-in">
@@ -283,14 +565,15 @@
                 システム開発から技術支援まで、幅広いITソリューションで<br>
                 お客様のプロジェクトを成功に導きます
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in stagger-2">
-                <a href="#contact" class="btn-primary">
-                    <i class="fas fa-paper-plane mr-2"></i>
-                    お問い合わせ
-                </a>
-                <a href="#services" class="glass-effect px-8 py-3 rounded-lg text-white hover:bg-white hover:bg-opacity-10 transition-all">
-                    サービス詳細
-                </a>
+            <div class="flex flex-col gap-4 justify-center fade-in stagger-2" style="gap: 1rem;">
+                <div>
+                    <a href="#contact" class="btn-primary">
+                        ✉ お問い合わせ
+                    </a>
+                    <a href="#services" class="glass-effect" style="padding: 0.75rem 2rem; border-radius: 0.5rem; color: white; text-decoration: none; margin-left: 1rem; display: inline-block; transition: all 0.3s ease;">
+                        サービス詳細
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -305,10 +588,10 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl p-8 shadow-lg hover-lift">
+            <div class="grid gap-8 grid-md-cols-3">
+                <div class="service-card">
                     <div class="tech-icon">
-                        <i class="fas fa-code"></i>
+                        💻
                     </div>
                     <h3 class="text-2xl font-bold mb-4">システム開発</h3>
                     <p class="text-gray-600 mb-6">
@@ -321,9 +604,9 @@
                     </ul>
                 </div>
                 
-                <div class="bg-white rounded-xl p-8 shadow-lg hover-lift">
+                <div class="service-card">
                     <div class="tech-icon">
-                        <i class="fas fa-users"></i>
+                        👥
                     </div>
                     <h3 class="text-2xl font-bold mb-4">IT人材・技術支援</h3>
                     <p class="text-gray-600 mb-6">
@@ -336,9 +619,9 @@
                     </ul>
                 </div>
                 
-                <div class="bg-white rounded-xl p-8 shadow-lg hover-lift">
+                <div class="service-card">
                     <div class="tech-icon">
-                        <i class="fas fa-chart-line"></i>
+                        📊
                     </div>
                     <h3 class="text-2xl font-bold mb-4">データ分析・AI</h3>
                     <p class="text-gray-600 mb-6">
@@ -364,51 +647,51 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">☕</div>
+            <div class="grid gap-6 grid-md-cols-4">
+                <div class="tech-card">
+                    <span class="tech-emoji">☕</span>
                     <h3 class="text-xl font-bold mb-2">Java</h3>
                     <p class="text-gray-300 text-sm">Spring Boot, Spring MVC</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🔷</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🔷</span>
                     <h3 class="text-xl font-bold mb-2">.NET</h3>
                     <p class="text-gray-300 text-sm">ASP.NET Core, C#</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🐘</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🐘</span>
                     <h3 class="text-xl font-bold mb-2">PHP</h3>
                     <p class="text-gray-300 text-sm">Laravel, Symfony</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🐍</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🐍</span>
                     <h3 class="text-xl font-bold mb-2">Python</h3>
                     <p class="text-gray-300 text-sm">Django, Flask, FastAPI</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">⚛️</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">⚛️</span>
                     <h3 class="text-xl font-bold mb-2">JavaScript</h3>
                     <p class="text-gray-300 text-sm">React, Vue.js, Node.js</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">☁️</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">☁️</span>
                     <h3 class="text-xl font-bold mb-2">Cloud</h3>
                     <p class="text-gray-300 text-sm">AWS, Azure, GCP</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">🤖</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">🤖</span>
                     <h3 class="text-xl font-bold mb-2">AI/ML</h3>
                     <p class="text-gray-300 text-sm">TensorFlow, PyTorch</p>
                 </div>
                 
-                <div class="dark-glass rounded-xl p-6 text-center hover-lift">
-                    <div class="text-4xl mb-4">📊</div>
+                <div class="tech-card">
+                    <span class="tech-emoji">📈</span>
                     <h3 class="text-xl font-bold mb-2">Data</h3>
                     <p class="text-gray-300 text-sm">BI, ETL, DWH</p>
                 </div>
@@ -419,15 +702,13 @@
     <!-- About Section -->
     <section id="about" class="py-20 section-light">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid gap-16 items-center grid-lg-cols-2">
                 <div>
                     <h2 class="text-4xl font-bold mb-8">Rubatoの強み</h2>
                     
                     <div class="space-y-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                <i class="fas fa-hands-helping"></i>
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤝</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">手厚いサポート体制</h3>
                                 <p class="text-gray-600">
@@ -436,10 +717,8 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                <i class="fas fa-bolt"></i>
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">フットワークの軽さ</h3>
                                 <p class="text-gray-600">
@@ -448,10 +727,8 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                <i class="fas fa-cogs"></i>
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚙️</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">幅広い技術対応</h3>
                                 <p class="text-gray-600">
@@ -460,10 +737,8 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
-                                <i class="fas fa-building"></i>
-                            </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🏢</div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2">大手企業との直取引実績</h3>
                                 <p class="text-gray-600">
@@ -488,12 +763,12 @@
                         </ul>
                     </div>
                     
-                    <div class="bg-gradient-to-r from-blue-500 to-teal-500 p-8 rounded-xl text-white">
+                    <div class="cta-card">
                         <h3 class="text-2xl font-bold mb-4">お気軽にご相談ください</h3>
                         <p class="mb-6">
                             プロジェクトの規模や内容に関わらず、まずはお気軽にご相談ください。最適なソリューションをご提案いたします。
                         </p>
-                        <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        <a href="#contact" class="cta-btn">
                             今すぐ相談する
                         </a>
                     </div>
@@ -512,28 +787,28 @@
                 </p>
             </div>
             
-            <div class="dark-glass rounded-2xl p-8">
-                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-6" action="/thank-you">
+            <div class="contact-form">
+                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
                     <input type="hidden" name="form-name" value="contact">
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">お名前 <span class="text-red-400">*</span></label>
+                    <div class="grid gap-6 grid-md-cols-2">
+                        <div class="form-group">
+                            <label class="form-label">お名前 <span class="required">*</span></label>
                             <input type="text" name="name" required class="form-input">
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">メールアドレス <span class="text-red-400">*</span></label>
+                        <div class="form-group">
+                            <label class="form-label">メールアドレス <span class="required">*</span></label>
                             <input type="email" name="email" required class="form-input">
                         </div>
                     </div>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">電話番号</label>
+                    <div class="grid gap-6 grid-md-cols-2">
+                        <div class="form-group">
+                            <label class="form-label">電話番号</label>
                             <input type="tel" name="phone" class="form-input">
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">お問い合わせ種別</label>
+                        <div class="form-group">
+                            <label class="form-label">お問い合わせ種別</label>
                             <select name="inquiry_type" class="form-input">
                                 <option value="">選択してください</option>
                                 <option value="フリーランス登録">フリーランス登録</option>
@@ -546,49 +821,48 @@
                         </div>
                     </div>
                     
-                    <div>
-                        <label class="block text-sm font-medium mb-2">技術領域（複数選択可）</label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="Java" class="mr-2">Java
+                    <div class="form-group">
+                        <label class="form-label">技術領域（複数選択可）</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="Java">Java
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value=".NET" class="mr-2">.NET
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value=".NET">.NET
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="PHP" class="mr-2">PHP
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="PHP">PHP
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="Python" class="mr-2">Python
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="Python">Python
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="JavaScript" class="mr-2">JavaScript
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="JavaScript">JavaScript
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="AI・データ分析" class="mr-2">AI・データ分析
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="AI・データ分析">AI・データ分析
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="クラウド" class="mr-2">クラウド
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="クラウド">クラウド
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="その他" class="mr-2">その他
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="その他">その他
                             </label>
                         </div>
                     </div>
                     
-                    <div>
-                        <label class="block text-sm font-medium mb-2">メッセージ <span class="text-red-400">*</span></label>
+                    <div class="form-group">
+                        <label class="form-label">メッセージ <span class="required">*</span></label>
                         <textarea name="message" required class="form-input form-textarea" placeholder="プロジェクトの詳細、技術要件、期間、予算など、お気軽にご相談内容をお書きください。"></textarea>
                     </div>
                     
-                    <div class="flex justify-center">
+                    <div class="text-center mb-6">
                         <div data-netlify-recaptcha="true"></div>
                     </div>
                     
                     <div class="text-center">
-                        <button type="submit" class="btn-primary text-lg px-12 py-4">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            送信する
+                        <button type="submit" class="btn-primary text-lg" style="padding: 1rem 3rem; font-size: 1.125rem;">
+                            ✉ 送信する
                         </button>
                     </div>
                 </form>
@@ -603,28 +877,28 @@
                 <h2 class="text-3xl font-bold mb-4">会社情報</h2>
             </div>
             
-            <div class="bg-white rounded-xl p-8 shadow-lg">
-                <div class="grid md:grid-cols-2 gap-8">
+            <div class="company-card">
+                <div class="grid gap-8 grid-md-cols-2">
                     <div>
                         <h3 class="text-xl font-bold mb-6 text-gradient">株式会社Rubato</h3>
                         <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start space-x-3">
-                                <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
+                            <div class="info-item">
+                                <span class="info-icon">📍</span>
                                 <div>
                                     <div class="font-medium">所在地</div>
                                     <div>〒124-0022<br>東京都葛飾区奥戸1-22-14</div>
                                 </div>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-phone text-blue-500"></i>
+                            <div class="info-item">
+                                <span class="info-icon">📞</span>
                                 <div>
                                     <span class="font-medium">TEL:</span> 03-1234-5678
                                 </div>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-envelope text-blue-500"></i>
+                            <div class="info-item">
+                                <span class="info-icon">✉️</span>
                                 <div>
-                                    <span class="font-medium">Email:</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90f9fef6ffd0e2e5f2f1e4ffbde4f5f3f8bef3ffbefae0">[email&#160;protected]</a>
+                                    <span class="font-medium">Email:</span> info@rubato-tech.co.jp
                                 </div>
                             </div>
                         </div>
@@ -649,9 +923,9 @@
     <!-- Footer -->
     <footer class="gradient-bg py-12">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <img src="./rubato_logo_256.png" alt="Rubato Logo" class="h-8 w-8">
+            <div class="flex flex-col items-center justify-between gap-4" style="flex-direction: column;">
+                <div class="flex items-center space-x-4">
+                    <img src="./rubato_logo_256.png" alt="Rubato Logo" class="h-8 w-8" style="height: 2rem; width: 2rem;">
                     <div>
                         <div class="text-lg font-bold text-gradient">株式会社Rubato</div>
                         <div class="text-sm text-gray-400">DATA IN HARMONY</div>
@@ -665,8 +939,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Smooth scrolling
+    <script>
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -681,16 +955,6 @@
                 }
             });
         });
-
-        // Mobile menu toggle (if needed)
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
 
         // Intersection Observer for animations
         const observerOptions = {
@@ -710,11 +974,28 @@
         document.querySelectorAll('.hover-lift, .tech-icon').forEach(el => {
             observer.observe(el);
         });
+
+        // Form validation
+        document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const message = document.querySelector('textarea[name="message"]').value.trim();
+            
+            if (!name || !email || !message) {
+                e.preventDefault();
+                alert('必須項目を入力してください。');
+                return false;
+            }
+        });
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnn5Wf%2FKlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8%2F18jXh%2BsR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe%2BUu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD%2Bi7cPOeArAsl6T9i8N%2FDe%2BYjXnzJuwXpkqZc7tCw1nIDvSBBE5shs%2BMwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe%2BFM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61%2BhsMMdqeA0YYMD%2B3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs%2Fkp4ZlBZXSegIiIiuO3RDh6mQ5yci7Z8%2BHqz%2BkpXTi46SmD9lPgKSuyMKelK4jdrizFO6L5g3H8NKLcsjslXyIzGSqH1a%2BOXZyFJEKXc%2F7icQ%3D%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnZOl7cb8b8obczp%2BLQ0AGK9IujSiUEB0critgxb3%2FHOfj9WNuZJ5TQFI1R%2FdEHd4P9pnP9GB8XmrMSrVp%2BWzE6FAep6347pI1Vmzz4VOtuGDh1qdNttbgxFIIR%2F36YUKfSdovDwHuIZ8gTPoZ5r8JDl6yV7W163WEVBLRC74L0tSV7VJydHMsLaMLdonQMdwfHrn%2B3iY1SvokJikToxt%2BFDQq%2BjifZWq5fJAG8Gsk%2FB4n847mrjLHt%2BFLCFJMqohfDl1Ztd8l4qyD4ciuEhY3P5M9BLr1DFCso2Thg774x%2Bnb%2F93pPV40wSqIHKQtOKOyYMYFuVDklg34iMy2%2BmyeyKp1%2FI9FVH4QkX0UB2XDzz9litRhEzfDNiX4XKwSAAKdHRVvQx2Hi2gqWekN1MLD23zFr40XzmgihtAwFLmgcMAzLW3TK%2BOBAC6NSY%2Fueu6nDRdsaRwk5gBlOfNlbmGM16RvawLISJzFlcAK7hqB9pCxQNSKwauyan6OIJTmUdceaxW0O1PI%2B%2FVfMAx5ZBvSk%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnn5Wf/KlMbDxmXvrCOUayCGOvVTgcTtl1TpEl27DhjOpFUm2oLRbgNw8HS8/18jXh+sR2E7BaY4AgR7w0zGIhQrydiwC7nKwNHcqamyvvjV3SAVBDNcbF2nRW4dM13L3lrDBe+Uu5OAlxuHeYyCGhPfLYzp3TBxvwEJhPKeRiepsXD+i7cPOeArAsl6T9i8N/De+YjXnzJuwXpkqZc7tCw1nIDvSBBE5shs+MwcJ24dFFwAyCsBNSFFFJZZdsyEZhhe+FM7n3HjbzjXNgyqMNSeJM91Mj61cgfxGjxhipus86rencgIlTEF9qXDsY6CvO5nLmeol1PFZFNB5rI61+hsMMdqeA0YYMD+3yaqQ2GlVBG4H9PEmknfhG1BIxMPA83NfWLZ4AzWFQn3Q8txs/kp4
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnZOl7cb8b8obczp+LQ0AGK9IujSiUEB0critgxb3/HOfj9WNuZJ5TQFI1R/dEHd4P9pnP9GB8XmrMSrVp+WzE6FAep6347pI1Vmzz4VOtuGDh1qdNttbgxFIIR/36YUKfSdovDwHuIZ8gTPoZ5r8JDl6yV7W163WEVBLRC74L0tSV7VJydHMsLaMLdonQMdwfHrn+3iY1SvokJikToxt+FDQq+jifZWq5fJAG8Gsk/B4n847mrjLHt+FLCFJMqohfDl1Ztd8l4qyD4ciuEhY3P5M9BLr1DFCso2Thg774x+nb/93pPV40wSqIHKQtOKOyYMYFuVDklg34iMy2+myeyKp1/I9FVH4QkX0UB2XDzz9litRhEzfDNiX4XKwSAAKdHRVvQx2Hi2gqWekN1MLD23zFr40XzmgihtAwFLmgcMAzLW3TK+OBAC6NSY/ueu6nDRdsaRwk5gBlOfNlbmGM16RvawLISJzFlcAK7hqB9pCxQNSKwauyan6OIJTmUdceaxW0O1PI+/VfMAx5ZBvSk=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
