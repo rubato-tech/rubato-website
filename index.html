@@ -366,6 +366,35 @@
             gap: 1rem;
         }
         
+        /* MVV Cards */
+        .mvv-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mvv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        .mvv-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #3b82f6, #14b8a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem auto;
+        }
+        
         /* Contact Form Styling */
         .contact-form {
             background: rgba(0, 0, 0, 0.3);
@@ -453,6 +482,93 @@
             transform: translateY(-1px);
         }
         
+        /* Policy Sections */
+        .policy-section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .policy-content {
+            color: #4b5563;
+            line-height: 1.8;
+        }
+        
+        .policy-content h3 {
+            color: #1f2937;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .policy-content h4 {
+            color: #374151;
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .policy-content ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+        
+        .policy-content li {
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #3b82f6, #14b8a6);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem 0.75rem 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            opacity: 0.7;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .text-6xl { font-size: 2.5rem; }
@@ -464,6 +580,10 @@
             .hidden-mobile { display: none; }
             .checkbox-grid { grid-template-columns: 1fr; }
             .nav-desktop { display: none; }
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
         }
         
         @media (min-width: 769px) {
@@ -486,7 +606,7 @@
         .mx-auto { margin-left: auto; margin-right: auto; }
         
         /* Smooth Transitions */
-        a, button, .form-input, .service-card, .tech-card {
+        a, button, .form-input, .service-card, .tech-card, .mvv-card {
             transition: all 0.3s ease;
         }
     </style>
@@ -504,7 +624,7 @@
         "foundingDate": "2018",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "奥戸1-22-14",
+            "streetAddress": "奥戸3-22-14",
             "addressLocality": "葛飾区",
             "addressRegion": "東京都",
             "postalCode": "124-0022",
@@ -544,6 +664,7 @@
                 </div>
                 <div class="nav-desktop flex items-center space-x-8">
                     <a href="#services" class="nav-link">サービス</a>
+                    <a href="#mvv" class="nav-link">企業理念</a>
                     <a href="#technology" class="nav-link">技術領域</a>
                     <a href="#about" class="nav-link">会社概要</a>
                     <a href="#contact" class="btn-primary">お問い合わせ</a>
@@ -560,9 +681,9 @@
         </div>
         <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
             <h1 class="text-6xl font-bold mb-6 fade-in">
-                技術とサポートで<br>
-                <span class="text-gradient">ビジネスの成功を支える</span><br>
-                信頼できるパートナー
+                最新技術と柔軟な対応力で<br>
+                <span class="text-gradient">AIから基幹システムまでワンストップ実現</span><br>
+                DATA IN HARMONY
             </h1>
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto fade-in stagger-1">
                 システム開発から技術支援まで、幅広いITソリューションで<br>
@@ -634,6 +755,60 @@
                         <li>• BI・DWH構築</li>
                         <li>• データ分析・可視化</li>
                         <li>• AI・機械学習システム</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Values Section -->
+    <section id="mvv" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">企業理念</h2>
+                <p class="text-xl text-gray-300">
+                    私たちが大切にしている想いと価値観
+                </p>
+            </div>
+            
+            <div class="grid gap-8 grid-md-cols-3">
+                <!-- Mission -->
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        🎯
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">MISSION</h3>
+                    <h4 class="text-lg font-medium mb-4 text-gradient">使命</h4>
+                    <p class="text-gray-300">
+                        手厚いサポートとフットワークの軽さで、お客様のビジネス成功を技術面から支え、共に成長し続けるパートナーとなる
+                    </p>
+                </div>
+                
+                <!-- Vision -->
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        🌟
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">VISION</h3>
+                    <h4 class="text-lg font-medium mb-4 text-gradient">将来像</h4>
+                    <p class="text-gray-300">
+                        AIから基幹システムまでワンストップで実現し、技術とビジネスを美しく調和させ、デジタル変革のリーディングカンパニーとなる
+                    </p>
+                </div>
+                
+                <!-- Values -->
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        💎
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">VALUES</h3>
+                    <h4 class="text-lg font-medium mb-4 text-gradient">価値観</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• 手厚いサポート体制</li>
+                        <li>• フットワークの軽さ</li>
+                        <li>• 継続的な技術力向上</li>
+                        <li>• パートナーシップ重視</li>
+                        <li>• 品質への妥協なきこだわり</li>
                     </ul>
                 </div>
             </div>
@@ -794,22 +969,22 @@
                 <form id="contact-form">
                     <div class="grid gap-6 grid-md-cols-2">
                         <div class="form-group">
-                            <label class="form-label">お名前 <span class="required">*</span></label>
-                            <input type="text" id="user_name" name="user_name" required class="form-input">
+                            <label for="user_name" class="form-label">お名前 <span class="required">*</span></label>
+                            <input type="text" id="user_name" name="user_name" class="form-input" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">メールアドレス <span class="required">*</span></label>
-                            <input type="email" id="user_email" name="user_email" required class="form-input">
+                            <label for="user_email" class="form-label">メールアドレス <span class="required">*</span></label>
+                            <input type="email" id="user_email" name="user_email" class="form-input" required>
                         </div>
                     </div>
                     
                     <div class="grid gap-6 grid-md-cols-2">
                         <div class="form-group">
-                            <label class="form-label">電話番号</label>
+                            <label for="phone_number" class="form-label">電話番号</label>
                             <input type="tel" id="phone_number" name="phone_number" class="form-input">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">お問い合わせ種別</label>
+                            <label for="inquiry_type" class="form-label">お問い合わせ種別</label>
                             <select id="inquiry_type" name="inquiry_type" class="form-input">
                                 <option value="">選択してください</option>
                                 <option value="フリーランス登録">フリーランス登録</option>
@@ -821,7 +996,7 @@
                             </select>
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label class="form-label">会社名・屋号</label>
                         <input type="text" id="company_name" name="company_name" class="form-input">
@@ -858,7 +1033,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">メッセージ <span class="required">*</span></label>
+                        <label for="message" class="form-label">メッセージ <span class="required">*</span></label>
                         <textarea id="message" name="message" required class="form-input form-textarea" placeholder="プロジェクトの詳細、技術要件、期間、予算など、お気軽にご相談内容をお書きください。"></textarea>
                     </div>
                     
@@ -867,7 +1042,7 @@
                             ✉ 送信する
                         </button>
                     </div>
-
+                    
                     <div id="form-message" class="text-center mt-4" style="display: none;"></div>
                 </form>
             </div>
@@ -896,7 +1071,7 @@
                             <div class="info-item">
                                 <span class="info-icon">📞</span>
                                 <div>
-                                    <span class="font-medium">TEL:</span> 090-5385-2367
+                                    <span class="font-medium">TEL:</span> 03-1234-5678
                                 </div>
                             </div>
                             <div class="info-item">
@@ -911,13 +1086,22 @@
                     <div>
                         <h3 class="text-lg font-bold mb-4">事業内容</h3>
                         <ul class="space-y-2 text-gray-600">
-                            <li> システム開発・保守</li>
-                            <li> SES・IT人材サービス</li>
-                            <li> データ分析・BI構築</li>
-                            <li> AI・機械学習ソリューション</li>
-                            <li> 技術コンサルティング</li>
-                            <li> フリーランスエンジニア支援</li>
+                            <li>• システム開発・保守</li>
+                            <li>• SES・IT人材サービス</li>
+                            <li>• データ分析・BI構築</li>
+                            <li>• AI・機械学習ソリューション</li>
+                            <li>• 技術コンサルティング</li>
+                            <li>• フリーランスエンジニア支援</li>
                         </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <div class="flex flex-col text-center gap-4">
+                        <div>
+                            <a href="#" onclick="openModal('privacyModal')" class="text-blue-600 hover:underline mr-4">個人情報保護方針</a>
+                            <a href="#" onclick="openModal('securityModal')" class="text-blue-600 hover:underline">情報セキュリティ基本方針</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -942,12 +1126,174 @@
         </div>
     </footer>
 
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-2xl font-bold">個人情報保護方針</h2>
+                <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+            </div>
+            <div class="modal-body policy-content">
+                <p>株式会社Rubato（以下「当社」）は、個人情報の保護に関する法令等を遵守し、お客様の個人情報を適切に取り扱うため、以下のとおり個人情報保護方針を定めます。</p>
+                
+                <h3>1. 個人情報の取得について</h3>
+                <p>当社は、適法かつ公正な手段により個人情報を取得いたします。</p>
+                
+                <h3>2. 個人情報の利用目的について</h3>
+                <p>当社は、取得した個人情報を以下の目的で利用いたします。</p>
+                <ul>
+                    <li>お客様からのお問い合わせへの対応</li>
+                    <li>サービスの提供・改善</li>
+                    <li>契約の履行</li>
+                    <li>マーケティング活動</li>
+                    <li>法令に基づく義務の履行</li>
+                </ul>
+                
+                <h3>3. 個人情報の第三者提供について</h3>
+                <p>当社は、以下の場合を除き、お客様の同意なく個人情報を第三者に提供いたしません。</p>
+                <ul>
+                    <li>法令に基づく場合</li>
+                    <li>人の生命、身体又は財産の保護のために必要がある場合</li>
+                    <li>公衆衛生の向上又は児童の健全な育成の推進のために特に必要がある場合</li>
+                    <li>国の機関もしくは地方公共団体又はその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合</li>
+                </ul>
+                
+                <h3>4. 個人情報の安全管理について</h3>
+                <p>当社は、個人情報の漏えい、滅失又は毀損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。</p>
+                
+                <h3>5. 個人情報の開示・訂正等について</h3>
+                <p>お客様から個人情報の開示、訂正、削除等の要求があった場合、適切に対応いたします。</p>
+                
+                <h3>6. お問い合わせ窓口</h3>
+                <p>個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。</p>
+                <h4>株式会社Rubato</h4>
+                <p>〒124-0022 東京都葛飾区奥戸3-22-14<br>
+                TEL: 03-1234-5678<br>
+                Email: privacy@rubato-tech.co.jp</p>
+                
+                <h3>7. 本方針の変更について</h3>
+                <p>当社は、本方針を変更する場合があります。変更後の方針は、当社ウェブサイトに掲載された時点で効力を生じるものとします。</p>
+                
+                <p style="text-align: right; margin-top: 2rem;">
+                    制定日：2018年4月1日<br>
+                    最終改訂日：2025年1月1日<br>
+                    株式会社Rubato<br>
+                    代表取締役社長
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Policy Modal -->
+    <div id="securityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-2xl font-bold">情報セキュリティ基本方針</h2>
+                <span class="close" onclick="closeModal('securityModal')">&times;</span>
+            </div>
+            <div class="modal-body policy-content">
+                <p>株式会社Rubato（以下「当社」）は、お客様からお預かりした情報資産及び当社が保有する情報資産を様々な脅威から保護するため、以下のとおり情報セキュリティ基本方針を定め、全社をあげて情報セキュリティの確保に取り組みます。</p>
+                
+                <h3>1. 基本理念</h3>
+                <p>当社は、情報セキュリティを経営の重要課題と位置づけ、お客様からの信頼を確保し、安全で安心なサービスを継続的に提供するため、情報セキュリティの維持・向上に努めます。</p>
+                
+                <h3>2. 適用範囲</h3>
+                <p>本方針は、当社の全ての役員・従業員・協力会社に適用されます。</p>
+                
+                <h3>3. 情報セキュリティ管理体制</h3>
+                <p>当社は、情報セキュリティを統括する責任者を設置し、組織的な情報セキュリティ管理体制を構築します。</p>
+                
+                <h3>4. 情報資産の保護</h3>
+                <ul>
+                    <li>情報資産を適切に分類し、その重要度に応じた安全管理措置を講じます</li>
+                    <li>不正アクセス、紛失、破壊、改ざん、漏えい等から情報資産を保護します</li>
+                    <li>システム障害や災害に備え、事業継続性を確保するための対策を講じます</li>
+                </ul>
+                
+                <h3>5. 法令遵守</h3>
+                <p>情報セキュリティに関する法令、規制、契約上の義務を遵守し、お客様との約束を履行します。</p>
+                
+                <h3>6. 教育・啓発</h3>
+                <p>全ての役員・従業員に対し、情報セキュリティに関する教育・啓発を継続的に実施し、セキュリティ意識の向上を図ります。</p>
+                
+                <h3>7. インシデント対応</h3>
+                <p>情報セキュリティインシデントが発生した場合、迅速かつ適切に対応し、被害の拡大を防止します。</p>
+                
+                <h3>8. 継続的改善</h3>
+                <p>情報セキュリティマネジメントシステムを継続的に改善し、情報セキュリティレベルの向上を図ります。</p>
+                
+                <h3>9. 監査</h3>
+                <p>情報セキュリティ管理状況について定期的に監査を実施し、実効性を確保します。</p>
+                
+                <h3>10. 取引先・協力会社との連携</h3>
+                <p>取引先・協力会社と連携し、サプライチェーン全体での情報セキュリティ確保に努めます。</p>
+                
+                <h3>11. お問い合わせ窓口</h3>
+                <p>情報セキュリティに関するお問い合わせは、以下までご連絡ください。</p>
+                <h4>株式会社Rubato 情報セキュリティ管理責任者</h4>
+                <p>〒124-0022 東京都葛飾区奥戸3-22-14<br>
+                TEL: 03-1234-5678<br>
+                Email: security@rubato-tech.co.jp</p>
+                
+                <p style="text-align: right; margin-top: 2rem;">
+                    制定日：2024年9月1日<br>
+                    株式会社Rubato<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         // EmailJS初期化
         (function() {
             emailjs.init('PwZ9Vbfuy98etQEdL');
         })();
+
+        // フォーム送信処理
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const messageDiv = document.getElementById('form-message');
+            
+            // ボタンを無効化
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+            
+            // フォームデータを取得
+            const templateParams = {
+                user_name: document.getElementById('user_name').value,
+                company_name: document.getElementById('company_name').value,
+                user_email: document.getElementById('user_email').value,
+                phone_number: document.getElementById('phone_number').value,
+                inquiry_type: document.getElementById('inquiry_type').value,
+                tech_stack: Array.from(document.querySelectorAll('input[name="tech_stack"]:checked'))
+                                 .map(cb => cb.value).join(', '),
+                message: document.getElementById('message').value
+            };
+            
+            // デバッグ用：送信データを確認
+            console.log('送信データ:', templateParams);
+            
+            // EmailJSでメール送信
+            emailjs.send('service_83eo8jv', 'template_knhy89h', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    messageDiv.innerHTML = '<p style="color: #10b981; font-weight: bold;">✓ お問い合わせを受け付けました。ありがとうございます！</p>';
+                    messageDiv.style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    messageDiv.innerHTML = '<p style="color: #ef4444; font-weight: bold;">✗ 送信に失敗しました。もう一度お試しください。</p>';
+                    messageDiv.style.display = 'block';
+                })
+                .finally(function() {
+                    // ボタンを元に戻す
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '送信する';
+                });
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -980,65 +1326,36 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.hover-lift, .tech-icon').forEach(el => {
+        document.querySelectorAll('.hover-lift, .tech-icon, .mvv-card').forEach(el => {
             observer.observe(el);
         });
 
-        // EmailJS フォーム送信処理
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const submitBtn = document.getElementById('submit-btn');
-            const messageDiv = document.getElementById('form-message');
-            
-            // ボタンを無効化
-            submitBtn.disabled = true;
-            submitBtn.textContent = '送信中...';
-            
-            // フォームデータを取得
-            const templateParams = {
-                user_name: document.getElementById('user_name').value,
-                company_name: document.getElementById('company_name').value,
-                user_email: document.getElementById('user_email').value,
-                phone_number: document.getElementById('phone_number').value,
-                inquiry_type: document.getElementById('inquiry_type').value,
-                tech_stack: Array.from(document.querySelectorAll('input[name="tech_stack"]:checked'))
-                                 .map(cb => cb.value).join(', '),
-                message: document.getElementById('message').value
-            };
-            
-            // デバッグ用ログ
-            console.log('送信データ:', templateParams);
-            console.log('Service ID: service_83eo8jv');
-            console.log('Template ID: template_knhy89h');
-            
-            // EmailJSでメール送信
-            emailjs.send('service_83eo8jv', 'template_knhy89h', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    messageDiv.innerHTML = '<p style="color: #10b981; font-weight: bold;">✓ お問い合わせを受け付けました。ありがとうございます！</p>';
-                    messageDiv.style.display = 'block';
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    console.log('Error details:', JSON.stringify(error, null, 2));
-                    messageDiv.innerHTML = '<p style="color: #ef4444; font-weight: bold;">✗ 送信に失敗しました。もう一度お試しください。</p>';
-                    messageDiv.style.display = 'block';
-                })
-                .finally(function() {
-                    // ボタンを元に戻す
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = '✉ 送信する';
-                });
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Modal close when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhuJMekFazYcgqdeXUlPVND3A3YSwhDTTK4qTqFgGNjQUQqM4xiYJlvHP9jtpu9uxCaoRJc%2BHRzTAsclpyISIWQs4ScyzJuG0AU7aZ3KimT0BFscqGlZV4ZtBqeGJEcj%2BHqhIMRnpWlU9WT8gk1Oeyo1fsKqoRkxCbMpAdYGIOBmyzy7Uk28b4RC9ocBib%2BvNfQiZH5BOLSMSdvYYZW3e5HZNCHnR4aucuNNevl%2B1Xb9Ev9sdKNqOUqiOL71pIV596%2Fj2f8%2B5Js02GiPmyTwdAdUrgmzrgOVX1b47K9TQtPdaaZ%2FWxNq%2BzdkxDj2nP3pqMypyp0cyMn3EoXMB0CRPmv3NDPe6st1%2BL%2Farfw6X0Rb3ZO8qlAIGAv87uB1o7DQQy3%2F0HTvgTbUx%2BUPPsN5Dju4yez6cHldxqqOEManxWFjfBeDL4BbpSYI8MTqR6SCD1P1r0xLFbjywQmWOH6rjhSCR%2F%2Fq9kwqpGQeikdTVo9enCrEsJ6tsq2uzmKblnprqw%3D%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDr0FWb%2B4PMDv9gCRUxH73TSKbEo75TBCsul4hmiFCNDRvgyU8W35wrvw9iqF7R6MosPFzT3LyN1njNuPoyao5cOyJSuQxhoZic6XQJA8V5iemdg7XdmkgqxKv4qrGTncooPnDHzFlW%2BwxYGWu0chDMC3gWscw8Fbc4Xq3iUWpI1MpM1AJ6jDQa%2B7A0MDvLl7XQSU8t7Vl8dfmqz2HjR9CDaomOKgxUv1OUQVC47oiQtPmGRfgYOmTsIRB1QjRO2%2BmzsYrdbJmWmuQlQNptKKW1cIkyLbFODnTQ2Xq598A8469ZfLiFE7onfw6wla2ykVZw%2Be%2BDs9mbLPaE0%2FrrQ73w4H9oyt9AahgkckAqjouv4BfFuZrvRui2yaDga1JwBM3F%2FP%2FsVlPqY0TCvjjT6obYhnASXhimBBKCvRJdMye3AMiDYHKD5JrEX%2FUzh%2FoTdtnyYZSZ%2FuBdx32qE20W7xNPOmKPF7%2BsM6r%2Ft9zlniVqYECO3HjErA2WokEljqjTVQMQ%3D%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhuJMekFazYcgqdeXUlPVND3A3YSwhDTTK4qTqFgGNjQUQqM4xiYJlvHP9jtpu9uxCaoRJc+HRzTAsclpyISIWQs4ScyzJuG0AU7aZ3KimT0BFscqGlZV4ZtBqeGJEcj+HqhIMRnpWlU9WT8gk1Oeyo1fsKqoRkxCbMpAdYGIOBmyzy7Uk28b4RC9ocBib+vNfQiZH5BOLSMSdvYYZW3e5HZNCHnR4aucuNNevl+1Xb9Ev9sdKNqOUqiOL71pIV596/j2f8+5Js02GiPmyTwdAdUrgmzrgOVX1b47K9TQtPdaaZ/WxNq+zdkxDj2nP3pqMypyp0cyMn3EoXMB0CRPmv3NDPe6st1+L/arfw6X0Rb3ZO8qlAIGAv87uB1o7DQQy3/0HTvgTbUx+UPPsN5Dju4yez6cHldxqqOEManxWFjfBeDL4BbpSYI8MTqR6SCD1P1r0xLFbjywQmWOH6rjhSCR//q9kwqpGQeikdTVo9enCrEsJ6tsq2uzmKblnprqw==";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDr0FWb+4PMDv9gCRUxH73TSKbEo75TBCsul4hmiFCNDRvgyU8W35wrvw9iqF7R6MosPFzT3LyN1njNuPoyao5cOyJSuQxhoZic6XQJA8V5iemdg7XdmkgqxKv4qrGTncooPnDHzFlW+wxYGWu0chDMC3gWscw8Fbc4Xq3iUWpI1MpM1AJ6jDQa+7A0MDvLl7XQSU8t7Vl8dfmqz2HjR9CDaomOKgxUv1OUQVC47oiQtPmGRfgYOmTsIRB1QjRO2+mzsYrdbJmWmuQlQNptKKW1cIkyLbFODnTQ2Xq598A8469ZfLiFE7onfw6wla2ykVZw+e+Ds9mbLPaE0/rrQ73w4H9oyt9AahgkckAqjouv4BfFuZrvRui2yaDga1JwBM3F/P/sVlPqY0TCvjjT6obYhnASXhimBBKCvRJdMye3AMiDYHKD5JrEX/Uzh/oTdtnyYZSZ/uBdx32qE20W7xNPOmKPF7+sM6r/t9zlniVqYECO3HjErA2WokEljqjTVQMQ==";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
