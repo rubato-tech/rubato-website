@@ -30,6 +30,9 @@
     <!-- Favicon -->
     <link rel="icon" href="./rubato_favicon.png" type="image/png">
     
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <style>
         /* Reset and Base Styles */
         * {
@@ -788,43 +791,26 @@
             </div>
             
             <div class="contact-form">
-                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
-                    <input type="hidden" name="form-name" value="contact">
-                    
+                <form id="contact-form">
                     <div class="grid gap-6 grid-md-cols-2">
                         <div class="form-group">
                             <label class="form-label">お名前 <span class="required">*</span></label>
-                            <input type="text" name="name" required class="form-input">
+                            <input type="text" id="user_name" name="user_name" required class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label">メールアドレス <span class="required">*</span></label>
-                            <input type="email" name="email" required class="form-input">
+                            <input type="email" id="user_email" name="user_email" required class="form-input">
                         </div>
                     </div>
                     
-                    <div class="dark-glass rounded-2xl p-8">
-                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-6">
-                    <input type="hidden" name="form-name" value="contact">
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">お名前 <span class="text-red-400">*</span></label>
-                            <input type="text" name="name" required class="form-input">
+                    <div class="grid gap-6 grid-md-cols-2">
+                        <div class="form-group">
+                            <label class="form-label">電話番号</label>
+                            <input type="tel" id="phone_number" name="phone_number" class="form-input">
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">メールアドレス <span class="text-red-400">*</span></label>
-                            <input type="email" name="email" required class="form-input">
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">電話番号</label>
-                            <input type="tel" name="phone" class="form-input">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">お問い合わせ種別</label>
-                            <select name="inquiry_type" class="form-input">
+                        <div class="form-group">
+                            <label class="form-label">お問い合わせ種別</label>
+                            <select id="inquiry_type" name="inquiry_type" class="form-input">
                                 <option value="">選択してください</option>
                                 <option value="フリーランス登録">フリーランス登録</option>
                                 <option value="法人協業・パートナーシップ">法人協業・パートナーシップ</option>
@@ -835,52 +821,54 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="form-label">会社名・屋号</label>
+                        <input type="text" id="company_name" name="company_name" class="form-input">
+                    </div>
                     
-                    <div>
-                        <label class="block text-sm font-medium mb-2">技術領域（複数選択可）</label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="Java" class="mr-2">Java
+                    <div class="form-group">
+                        <label class="form-label">技術領域（複数選択可）</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="Java">Java
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value=".NET" class="mr-2">.NET
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value=".NET">.NET
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="PHP" class="mr-2">PHP
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="PHP">PHP
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="Python" class="mr-2">Python
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="Python">Python
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="JavaScript" class="mr-2">JavaScript
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="JavaScript">JavaScript
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="AI・データ分析" class="mr-2">AI・データ分析
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="AI・データ分析">AI・データ分析
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="クラウド" class="mr-2">クラウド
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="クラウド">クラウド
                             </label>
-                            <label class="flex items-center text-white">
-                                <input type="checkbox" name="tech_stack" value="その他" class="mr-2">その他
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tech_stack" value="その他">その他
                             </label>
                         </div>
                     </div>
                     
-                    <div>
-                        <label class="block text-sm font-medium mb-2">メッセージ <span class="text-red-400">*</span></label>
-                        <textarea name="message" required class="form-input form-textarea" placeholder="プロジェクトの詳細、技術要件、期間、予算など、お気軽にご相談内容をお書きください。"></textarea>
-                    </div>
-                    
-                    <div class="flex justify-center">
-                        <div data-netlify-recaptcha="true"></div>
+                    <div class="form-group">
+                        <label class="form-label">メッセージ <span class="required">*</span></label>
+                        <textarea id="message" name="message" required class="form-input form-textarea" placeholder="プロジェクトの詳細、技術要件、期間、予算など、お気軽にご相談内容をお書きください。"></textarea>
                     </div>
                     
                     <div class="text-center">
-                        <button type="submit" class="btn-primary text-lg px-12 py-4">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            送信する
+                        <button type="submit" class="btn-primary text-lg" id="submit-btn" style="padding: 1rem 3rem; font-size: 1.125rem;">
+                            ✉ 送信する
                         </button>
                     </div>
+
+                    <div id="form-message" class="text-center mt-4" style="display: none;"></div>
                 </form>
             </div>
         </div>
@@ -956,6 +944,11 @@
 
     <!-- Scripts -->
     <script>
+        // EmailJS初期化
+        (function() {
+            emailjs.init('PwZ9Vbfuy98etQEdL');
+        })();
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -991,26 +984,61 @@
             observer.observe(el);
         });
 
-        // Form validation
-        document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
-            const name = document.querySelector('input[name="name"]').value.trim();
-            const email = document.querySelector('input[name="email"]').value.trim();
-            const message = document.querySelector('textarea[name="message"]').value.trim();
+        // EmailJS フォーム送信処理
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
             
-            if (!name || !email || !message) {
-                e.preventDefault();
-                alert('必須項目を入力してください。');
-                return false;
-            }
+            const submitBtn = document.getElementById('submit-btn');
+            const messageDiv = document.getElementById('form-message');
+            
+            // ボタンを無効化
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+            
+            // フォームデータを取得
+            const templateParams = {
+                user_name: document.getElementById('user_name').value,
+                company_name: document.getElementById('company_name').value,
+                user_email: document.getElementById('user_email').value,
+                phone_number: document.getElementById('phone_number').value,
+                inquiry_type: document.getElementById('inquiry_type').value,
+                tech_stack: Array.from(document.querySelectorAll('input[name="tech_stack"]:checked'))
+                                 .map(cb => cb.value).join(', '),
+                message: document.getElementById('message').value
+            };
+            
+            // デバッグ用ログ
+            console.log('送信データ:', templateParams);
+            console.log('Service ID: service_83eo8jv');
+            console.log('Template ID: template_knhy89h');
+            
+            // EmailJSでメール送信
+            emailjs.send('service_83eo8jv', 'template_knhy89h', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    messageDiv.innerHTML = '<p style="color: #10b981; font-weight: bold;">✓ お問い合わせを受け付けました。ありがとうございます！</p>';
+                    messageDiv.style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    console.log('Error details:', JSON.stringify(error, null, 2));
+                    messageDiv.innerHTML = '<p style="color: #ef4444; font-weight: bold;">✗ 送信に失敗しました。もう一度お試しください。</p>';
+                    messageDiv.style.display = 'block';
+                })
+                .finally(function() {
+                    // ボタンを元に戻す
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '✉ 送信する';
+                });
         });
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnZOl7cb8b8obczp%2BLQ0AGK9IujSiUEB0critgxb3%2FHOfj9WNuZJ5TQFI1R%2FdEHd4P9pnP9GB8XmrMSrVp%2BWzE6FAep6347pI1Vmzz4VOtuGDh1qdNttbgxFIIR%2F36YUKfSdovDwHuIZ8gTPoZ5r8JDl6yV7W163WEVBLRC74L0tSV7VJydHMsLaMLdonQMdwfHrn%2B3iY1SvokJikToxt%2BFDQq%2BjifZWq5fJAG8Gsk%2FB4n847mrjLHt%2BFLCFJMqohfDl1Ztd8l4qyD4ciuEhY3P5M9BLr1DFCso2Thg774x%2Bnb%2F93pPV40wSqIHKQtOKOyYMYFuVDklg34iMy2%2BmyeyKp1%2FI9FVH4QkX0UB2XDzz9litRhEzfDNiX4XKwSAAKdHRVvQx2Hi2gqWekN1MLD23zFr40XzmgihtAwFLmgcMAzLW3TK%2BOBAC6NSY%2Fueu6nDRdsaRwk5gBlOfNlbmGM16RvawLISJzFlcAK7hqB9pCxQNSKwauyan6OIJTmUdceaxW0O1PI%2B%2FVfMAx5ZBvSk%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDhuJMekFazYcgqdeXUlPVND3A3YSwhDTTK4qTqFgGNjQUQqM4xiYJlvHP9jtpu9uxCaoRJc%2BHRzTAsclpyISIWQs4ScyzJuG0AU7aZ3KimT0BFscqGlZV4ZtBqeGJEcj%2BHqhIMRnpWlU9WT8gk1Oeyo1fsKqoRkxCbMpAdYGIOBmyzy7Uk28b4RC9ocBib%2BvNfQiZH5BOLSMSdvYYZW3e5HZNCHnR4aucuNNevl%2B1Xb9Ev9sdKNqOUqiOL71pIV596%2Fj2f8%2B5Js02GiPmyTwdAdUrgmzrgOVX1b47K9TQtPdaaZ%2FWxNq%2BzdkxDj2nP3pqMypyp0cyMn3EoXMB0CRPmv3NDPe6st1%2BL%2Farfw6X0Rb3ZO8qlAIGAv87uB1o7DQQy3%2F0HTvgTbUx%2BUPPsN5Dju4yez6cHldxqqOEManxWFjfBeDL4BbpSYI8MTqR6SCD1P1r0xLFbjywQmWOH6rjhSCR%2F%2Fq9kwqpGQeikdTVo9enCrEsJ6tsq2uzmKblnprqw%3D%3D";
         window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnZOl7cb8b8obczp+LQ0AGK9IujSiUEB0critgxb3/HOfj9WNuZJ5TQFI1R/dEHd4P9pnP9GB8XmrMSrVp+WzE6FAep6347pI1Vmzz4VOtuGDh1qdNttbgxFIIR/36YUKfSdovDwHuIZ8gTPoZ5r8JDl6yV7W163WEVBLRC74L0tSV7VJydHMsLaMLdonQMdwfHrn+3iY1SvokJikToxt+FDQq+jifZWq5fJAG8Gsk/B4n847mrjLHt+FLCFJMqohfDl1Ztd8l4qyD4ciuEhY3P5M9BLr1DFCso2Thg774x+nb/93pPV40wSqIHKQtOKOyYMYFuVDklg34iMy2+myeyKp1/I9FVH4QkX0UB2XDzz9litRhEzfDNiX4XKwSAAKdHRVvQx2Hi2gqWekN1MLD23zFr40XzmgihtAwFLmgcMAzLW3TK+OBAC6NSY/ueu6nDRdsaRwk5gBlOfNlbmGM16RvawLISJzFlcAK7hqB9pCxQNSKwauyan6OIJTmUdceaxW0O1PI+/VfMAx5ZBvSk=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDhuJMekFazYcgqdeXUlPVND3A3YSwhDTTK4qTqFgGNjQUQqM4xiYJlvHP9jtpu9uxCaoRJc+HRzTAsclpyISIWQs4ScyzJuG0AU7aZ3KimT0BFscqGlZV4ZtBqeGJEcj+HqhIMRnpWlU9WT8gk1Oeyo1fsKqoRkxCbMpAdYGIOBmyzy7Uk28b4RC9ocBib+vNfQiZH5BOLSMSdvYYZW3e5HZNCHnR4aucuNNevl+1Xb9Ev9sdKNqOUqiOL71pIV596/j2f8+5Js02GiPmyTwdAdUrgmzrgOVX1b47K9TQtPdaaZ/WxNq+zdkxDj2nP3pqMypyp0cyMn3EoXMB0CRPmv3NDPe6st1+L/arfw6X0Rb3ZO8qlAIGAv87uB1o7DQQy3/0HTvgTbUx+UPPsN5Dju4yez6cHldxqqOEManxWFjfBeDL4BbpSYI8MTqR6SCD1P1r0xLFbjywQmWOH6rjhSCR//q9kwqpGQeikdTVo9enCrEsJ6tsq2uzmKblnprqw==";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
