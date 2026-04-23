@@ -1845,11 +1845,41 @@
         .premium-card.light p {
             color: #374151 !important;
         }
+        /* Dark-background list text */
         .dense-list li,
         .theme-list li,
         .ses-list li,
         .pillar-list li {
             color: #c8d6e5 !important;
+        }
+        /* ★ CRITICAL: Override back to dark text when inside section-light (white bg) */
+        .section-light .dense-list li,
+        .section-light .theme-list li,
+        .section-light .ses-list li,
+        .section-light .pillar-list li,
+        .section-light .deliverable-list li,
+        .section-light .company-panel li,
+        .section-light .company-panel p,
+        .company-panel .dense-list li,
+        .company-panel .ses-list li {
+            color: #334155 !important;
+        }
+        /* Company panel – enforce dark text regardless of context */
+        .company-panel,
+        .company-panel p,
+        .company-panel li,
+        .company-panel a {
+            color: #334155 !important;
+        }
+        .company-panel h3 {
+            color: #0f172a !important;
+        }
+        /* SES summary panel inside section-light – fix light text override */
+        .ses-summary p,
+        .ses-summary li,
+        .company-summary p,
+        .company-summary li {
+            color: #334155 !important;
         }
 
         /* Better section-light text defaults */
@@ -1923,6 +1953,30 @@
         .sales-cta-band {
             background: linear-gradient(135deg, rgba(10,17,32,0.98), rgba(25,50,150,0.92)) !important;
             border: 1px solid rgba(255,255,255,0.07);
+        }
+        /* ★ CRITICAL: CTA section body text – must be bright enough */
+        .sales-cta-band p {
+            color: #dde8f7 !important;
+            opacity: 1 !important;
+            font-size: 1.02rem;
+            line-height: 1.9;
+        }
+        .sales-cta-band h2 {
+            color: #f0f7ff !important;
+        }
+        /* CTA pills – more visible */
+        .cta-points span,
+        .section-light .cta-points span {
+            background: rgba(255,255,255,0.14) !important;
+            border: 1px solid rgba(255,255,255,0.28) !important;
+            color: #f0f7ff !important;
+            font-size: 0.94rem;
+        }
+        .cta-card span {
+            color: #e5edf9 !important;
+        }
+        .cta-card strong {
+            color: #93c5fd !important;
         }
 
         /* Contact form inputs */
@@ -2921,7 +2975,7 @@
 <li>会社名：株式会社Rubato</li>
 <li>所在地：〒124-0022 東京都葛飾区奥戸3-22-14</li>
 <li>電話：090-5385-2367</li>
-<li>メール：info@rubato-tech.co.jp</li>
+<li>メール：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2dbdcd4ddf2c0c7d0d3c6dd9fc6d7d1da9cd1dd9cd8c2">[email&#160;protected]</a></li>
 <li>Webサイト：https://rubato-tech.co.jp/</li>
 <li>事業：システム開発・保守、SES・技術支援、AI導入支援、業務効率化、小規模ツール開発、LP・Web制作</li>
 </ul>
