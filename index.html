@@ -246,12 +246,14 @@
         
         /* Animations */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 0.9s ease forwards;
         }
         
         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1588,21 +1590,8 @@
     }
 }
 
-        /* premium overhaul */
-        :root {
-            --primary-dark: #0b1220;
-            --secondary-dark: #162033;
-            --accent-blue: #1d4ed8;
-            --accent-teal: #0f766e;
-            --accent-green: #047857;
-            --text-light: #f8fafc;
-            --text-gray: #94a3b8;
-            --bg-light: #f3f5f9;
-        }
-        html { background: #f3f5f9; }
+        /* readability refresh */
         body {
-            background: #f3f5f9;
-            color: #0f172a;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
@@ -1610,307 +1599,376 @@
             font-weight: 500;
             letter-spacing: 0.01em;
         }
-        .gradient-bg {
-            background:
-                radial-gradient(circle at top left, rgba(59, 130, 246, 0.14), transparent 28%),
-                radial-gradient(circle at bottom right, rgba(20, 184, 166, 0.10), transparent 26%),
-                linear-gradient(180deg, #0b1220 0%, #111a2d 54%, #162033 100%);
-            color: #f8fafc;
-        }
+        .text-gray-300 { color: #e5edf7; }
+        .text-gray-400 { color: #cbd5e1; }
+        .text-gray-500 { color: #475569; }
+        .text-gray-600 { color: #334155; }
         .section-light {
-            background: linear-gradient(180deg, #f7f8fb 0%, #eef2f7 100%);
+            background: #f8fafc;
             color: #0f172a;
         }
-        .glass-effect {
-            background: rgba(11, 18, 32, 0.38);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.10);
+        .section-light p,
+        .section-light li,
+        .section-light label,
+        .service-card p,
+        .service-card li,
+        .feature-item p,
+        .bg-white ul li,
+        .company-panel li {
+            color: #334155 !important;
         }
-        .nav-desktop a.nav-link,
-        .nav-link {
-            color: rgba(248, 250, 252, 0.88);
+        .nav-desktop a.nav-link {
+            color: #e5e7eb;
             font-weight: 600;
-            letter-spacing: 0.02em;
         }
-        .nav-desktop a.nav-link:hover,
-        .nav-link:hover { color: #ffffff; }
-        .btn-primary,
-        .btn-secondary,
-        .cta-btn {
-            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: 0 18px 40px -30px rgba(15, 23, 42, 0.45);
-            font-weight: 700;
+        .nav-desktop a.nav-link:hover { color: #ffffff; }
+        .section-head p {
+            opacity: 1;
+            color: inherit;
+            font-weight: 500;
         }
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #0f766e);
-            color: #ffffff;
-        }
-        .btn-secondary {
-            background: transparent;
-            color: #e5edf7;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-        .btn-primary:hover,
-        .btn-secondary:hover,
-        .cta-btn:hover,
-        .hover-lift:hover,
-        .service-card:hover,
-        .tech-card:hover,
-        .mvv-card:hover {
-            transform: none !important;
-            box-shadow: 0 18px 40px -30px rgba(15, 23, 42, 0.45) !important;
-        }
-        .hover-lift,
-        .service-card,
-        .tech-card,
-        .mvv-card,
-        .premium-card,
-        .company-panel,
-        .cta-card,
-        .glance-item,
-        .offer-item,
-        .process-node,
-        .quick-contact-panel,
-        .contact-form,
-        .soft-pill,
-        .contact-chip,
-        .support-note {
-            transition: none !important;
-        }
-        .fade-in,
-        .stagger-1,
-        .stagger-2,
-        .stagger-3 {
-            opacity: 1 !important;
-            transform: none !important;
-            animation: none !important;
-        }
-        .hero-bg { opacity: 0.08; }
-        .blur-circle-1,
-        .blur-circle-2 {
-            filter: blur(90px);
-            opacity: 0.62;
-        }
-        .text-gray-300 { color: #dbe6f2; }
-        .text-gray-400 { color: #a8b7ca; }
-        .text-gray-500 { color: #415269; }
-        .text-gray-600 { color: #243447; }
-        .text-gradient {
-            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 48%, #a5f3fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .eyebrow,
-        .card-label {
-            color: #9fb8dd;
-            border-color: rgba(148, 163, 184, 0.22);
-            background: rgba(255, 255, 255, 0.04);
-            font-weight: 700;
-            letter-spacing: 0.12em;
-        }
-        .section-light .eyebrow,
-        .section-light .card-label {
-            color: #56749a;
-            background: rgba(255, 255, 255, 0.78);
-            border: 1px solid rgba(148, 163, 184, 0.24);
-        }
-        .section-head p,
         .section-summary,
         .card-brief,
+        .glance-item span,
+        .offer-item span,
         .domain-meta p,
         .deliverable-card p,
         .contact-note p,
         .contact-example p,
         .contact-intro,
-        .glance-item span,
-        .offer-item span,
-        .sales-cta-band p,
-        .company-panel p,
-        .company-panel li,
-        .support-note,
-        .contact-chip,
-        .cta-card span,
-        .premium-card p,
-        .premium-card li,
-        .service-card p,
-        .service-card li,
-        .feature-item p,
-        .mvv-card p,
-        .mvv-card li,
-        .tech-card p {
-            opacity: 1 !important;
+        .sales-cta-band p {
+            opacity: 1;
         }
         .section-summary {
-            color: #cfdaea;
-            font-size: 1.03rem;
-            line-height: 1.95;
+            color: #e2e8f0;
+            font-size: 1.04rem;
         }
         .section-light .section-summary,
-        .section-light .card-brief,
-        .section-light .domain-meta p,
-        .section-light .deliverable-card p,
-        .section-light .contact-note p,
-        .section-light .contact-example p,
-        .section-light .glance-item span,
-        .section-light .offer-item span,
-        .section-light .premium-card p,
-        .section-light .premium-card li,
-        .section-light .service-card p,
-        .section-light .service-card li,
-        .section-light .feature-item p,
-        .section-light .company-panel p,
-        .section-light .company-panel li {
-            color: #334155 !important;
+        .section-light .card-brief {
+            color: #334155;
         }
-        .service-card,
-        .section-light .premium-card,
-        .section-light .glance-item,
-        .section-light .cta-card,
-        .section-light .company-panel,
-        .section-light .quick-contact-panel {
-            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,248,252,0.98));
+        .service-card {
             border: 1px solid rgba(15, 23, 42, 0.08);
-            box-shadow: 0 24px 60px -42px rgba(15, 23, 42, 0.18);
+            box-shadow: 0 20px 40px -28px rgba(15, 23, 42, 0.18);
         }
-        .gradient-bg .premium-card,
-        .gradient-bg .mvv-card,
-        .gradient-bg .tech-card,
-        .gradient-bg .contact-form,
-        .gradient-bg .contact-chip,
-        .gradient-bg .cta-card,
-        .gradient-bg .soft-pill,
-        .gradient-bg .support-note,
-        .gradient-bg .offer-item,
-        .gradient-bg .glance-item,
-        .gradient-bg .quick-contact-panel {
-            background: linear-gradient(180deg, rgba(18, 28, 46, 0.92), rgba(24, 36, 58, 0.92));
-            border: 1px solid rgba(191, 219, 254, 0.12);
-            box-shadow: 0 28px 60px -44px rgba(2, 6, 23, 0.72);
-        }
-        .gradient-bg .premium-card p,
-        .gradient-bg .premium-card li,
-        .gradient-bg .card-brief,
-        .gradient-bg .domain-meta p,
-        .gradient-bg .support-note,
-        .gradient-bg .contact-chip,
-        .gradient-bg .cta-card span,
-        .gradient-bg .glance-item span,
-        .gradient-bg .offer-item span,
-        .gradient-bg .contact-intro,
-        .gradient-bg .mvv-card p,
-        .gradient-bg .mvv-card li,
-        .gradient-bg .tech-card p {
-            color: #dbe6f2 !important;
-        }
-        .sales-cta-band {
-            background: linear-gradient(135deg, #101a2d 0%, #17243a 54%, #1c355e 100%);
-            box-shadow: 0 34px 72px rgba(15, 23, 42, 0.22);
-            border: 1px solid rgba(191, 219, 254, 0.12);
-        }
-        .sales-cta-band h2,
-        .section-light h2,
-        .section-light h3,
-        .section-light h4,
-        .section-light strong,
-        .section-light label {
-            color: #0f172a;
-        }
-        .gradient-bg h2,
-        .gradient-bg h3,
-        .gradient-bg h4,
-        .gradient-bg strong,
-        .gradient-bg label {
-            color: #f8fafc;
-        }
-        .hero-badge,
-        .hero-proof-pill,
-        .soft-pill,
-        .cta-points span {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #f8fafc;
-            font-weight: 600;
-        }
-        .hero-proof-pill,
-        .hero-badge,
-        .cta-points span,
-        .soft-pill,
-        .contact-chip {
-            line-height: 1.65;
-        }
-        .feature-icon,
-        .tech-icon,
-        .mvv-icon {
-            background: linear-gradient(135deg, #163153, #1e4f83);
-            color: #f8fafc;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-        }
-        .mvv-icon {
-            border-radius: 1rem;
-        }
-        .tech-emoji {
-            font-size: 1.45rem;
-            letter-spacing: 0.04em;
-            color: #bfdbfe;
-        }
-        .premium-card h3,
         .service-card h3,
+        .feature-item h3,
+        .bg-white h3,
         .company-panel h3,
+        .premium-card h3,
         .mvv-card h3,
-        .tech-card h3,
-        .feature-item h3 {
+        .tech-card h3 {
             letter-spacing: 0.01em;
-            line-height: 1.4;
         }
         .premium-card,
-        .service-card,
-        .company-panel,
         .mvv-card,
-        .tech-card,
-        .cta-card,
+        .tech-card {
+            background: rgba(15, 23, 42, 0.54);
+            border: 1px solid rgba(191, 219, 254, 0.16);
+            box-shadow: 0 22px 50px -34px rgba(2, 6, 23, 0.6);
+        }
+        .premium-card,
+        .premium-card p,
+        .premium-card li,
+        .mvv-card p,
+        .mvv-card li,
+        .tech-card p,
+        .glance-item span,
+        .offer-item span,
+        .support-note,
+        .contact-chip,
+        .contact-intro,
+        .contact-form,
+        .cta-card span {
+            color: #e5edf7;
+        }
+        .support-note {
+            background: rgba(15, 23, 42, 0.46);
+            border: 1px solid rgba(148, 163, 184, 0.24);
+        }
         .glance-item,
         .offer-item,
-        .quick-contact-panel,
-        .contact-form {
-            border-radius: 1.25rem;
+        .contact-chip,
+        .cta-card {
+            border-color: rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
         }
-        .form-input,
-        .form-textarea,
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            background: rgba(255,255,255,0.98);
-            color: #0f172a;
-            border: 1px solid rgba(148, 163, 184, 0.34);
-            font-weight: 500;
+        .hero-badge,
+        .hero-proof-pill {
+            color: #f8fafc;
+            background: rgba(255, 255, 255, 0.11);
+            border-color: rgba(255, 255, 255, 0.2);
+            font-weight: 600;
         }
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #64748b;
+        .hero-offer-strip .offer-item strong,
+        .sales-cta-band h2,
+        .sales-cta-band strong,
+        .text-gradient {
+            text-shadow: 0 6px 24px rgba(15, 23, 42, 0.18);
         }
-        .company-panel a { color: #1d4ed8; }
+        .bg-white {
+            box-shadow: 0 18px 44px -34px rgba(15, 23, 42, 0.28);
+        }
+        .company-panel {
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            box-shadow: 0 24px 44px -34px rgba(15, 23, 42, 0.18);
+        }
+        .company-panel p,
+        .company-panel li,
+        .company-panel a,
+        .process-node p,
+        .process-node li {
+            color: #334155;
+        }
         .support-note strong,
-        .contact-chip strong,
+        .cta-card strong,
         .glance-item strong,
         .deliverable-card strong,
         .domain-meta strong,
         .contact-note strong,
         .contact-example strong,
-        .cta-card strong {
-            color: #6ea8ff !important;
+        .contact-chip strong {
+            color: #bfdbfe;
         }
-        @media (max-width: 960px) {
-            .hero-offer-strip,
-            .glance-strip,
-            .sales-cta-band,
-            .contact-shell,
-            .two-col,
-            .premium-grid.three,
-            .grid-md-cols-3,
-            .grid-md-cols-4 {
-                grid-template-columns: 1fr !important;
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            color: #f8fafc;
+            border-color: rgba(255, 255, 255, 0.16);
+            font-weight: 500;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #cbd5e1;
+        }
+        @media (max-width: 768px) {
+            .text-6xl { font-size: 2.8rem; }
+            .sales-cta-band {
+                padding: 1.5rem;
             }
+        }
+
+        /* ===== PREMIUM REFINEMENTS ===== */
+
+        /* Fix font rendering */
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Fix glance-strip in light sections – was near-invisible */
+        .section-light .glance-item {
+            background: #ffffff;
+            border: 1px solid rgba(15,23,42,0.10);
+            box-shadow: 0 4px 16px -8px rgba(15,23,42,0.12);
+        }
+        .section-light .glance-item strong {
+            color: #0f766e !important;
+        }
+        .section-light .glance-item span {
+            color: #374151 !important;
+        }
+        .section-light .offer-item,
+        .section-light .scan-card {
+            background: #ffffff;
+            border-color: rgba(15,23,42,0.10);
+        }
+        .section-light .offer-item strong {
+            color: #0f172a !important;
+        }
+        .section-light .offer-item span {
+            color: #374151 !important;
+        }
+
+        /* Reduce cheap hover bounce – use subtle scale + shadow instead */
+        .hover-lift:hover,
+        .service-card:hover,
+        .mvv-card:hover,
+        .tech-card:hover,
+        .usecase-card:hover,
+        .premium-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 20px 44px -24px rgba(15,23,42,0.38), 0 0 0 1px rgba(59,130,246,0.12) !important;
+            transition: transform 0.28s cubic-bezier(0.22,1,0.36,1), box-shadow 0.28s ease !important;
+        }
+
+        /* Tighten card transitions */
+        .service-card, .mvv-card, .tech-card, .premium-card, .usecase-card {
+            transition: transform 0.28s cubic-bezier(0.22,1,0.36,1), box-shadow 0.28s ease;
+        }
+
+        /* Section headings – more refined */
+        .text-4xl { font-size: 2.1rem; letter-spacing: -0.025em; }
+        .section-head h2, h2.text-4xl {
+            font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+        }
+
+        /* Better eyebrow label */
+        .eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            color: #93c5fd;
+            font-weight: 700;
+        }
+        .section-light .eyebrow {
+            color: #0f766e;
+        }
+
+        /* Premium card top accent for services */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #14b8a6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Improve dark card text contrast */
+        .premium-card li,
+        .premium-card p {
+            color: #d1dce9 !important;
+            line-height: 1.82;
+        }
+        .premium-card.light li,
+        .premium-card.light p {
+            color: #374151 !important;
+        }
+        .dense-list li,
+        .theme-list li,
+        .ses-list li,
+        .pillar-list li {
+            color: #c8d6e5 !important;
+        }
+
+        /* Better section-light text defaults */
+        .section-light .service-card p,
+        .section-light .service-card li {
+            color: #374151 !important;
+        }
+        .section-light h3 {
+            color: #0f172a;
+        }
+        .service-card .text-gray-600 {
+            color: #374151 !important;
+        }
+        .service-card .text-gray-500,
+        .service-card ul.text-sm {
+            color: #475569 !important;
+        }
+
+        /* Button polish */
+        .btn-primary {
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border-radius: 0.6rem;
+        }
+
+        /* MVP card refinements */
+        .mvv-card {
+            background: rgba(12,20,38,0.72) !important;
+            border: 1px solid rgba(148,163,184,0.18) !important;
+            border-top: none !important;
+            padding: 2.25rem 1.75rem !important;
+        }
+        .mvv-card h3 {
+            color: #eaf2ff;
+            letter-spacing: -0.02em;
+            font-size: 1.35rem !important;
+        }
+        .mvv-card p {
+            color: #c8d6e5 !important;
+        }
+        .mvv-icon {
+            background: linear-gradient(135deg, rgba(59,130,246,0.22), rgba(20,184,166,0.18)) !important;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.7rem !important;
+            letter-spacing: 0.14em !important;
+            color: #bfdbfe !important;
+            width: 3.5rem !important;
+            height: 2rem !important;
+            border-radius: 999px !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        /* Tech cards */
+        .tech-card {
+            background: rgba(12,20,38,0.72) !important;
+        }
+        .tech-emoji {
+            background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(20,184,166,0.14)) !important;
+        }
+
+        /* Support note */
+        .support-note {
+            border-radius: 1.1rem;
+            padding: 1.35rem 1.5rem;
+            font-size: 0.96rem;
+            line-height: 1.85;
+            color: #c8d6e5;
+        }
+
+        /* CTA section */
+        .sales-cta-band {
+            background: linear-gradient(135deg, rgba(10,17,32,0.98), rgba(25,50,150,0.92)) !important;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        /* Contact form inputs */
+        .contact-form .form-input {
+            background: rgba(15,23,42,0.7);
+            color: #f1f5f9;
+        }
+
+        /* Improve section separation */
+        section {
+            border-top: none;
+        }
+
+        /* Hero scan card polish */
+        .scan-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.055);
+        }
+        .scan-card strong {
+            font-size: 0.92rem;
+            color: #dbeafe;
+            letter-spacing: 0.01em;
+        }
+        .scan-card span {
+            font-size: 0.88rem;
+            color: rgba(203,213,225,0.85);
+        }
+
+        /* Case study cards */
+        .case-study-card {
+            border-top: 2px solid rgba(59,130,246,0.35) !important;
+        }
+        .card-label {
+            color: #7dd3c7 !important;
+        }
+
+        /* Improved form */
+        #submit-btn {
+            background: linear-gradient(135deg, #1d4ed8, #0f766e);
+            border-radius: 0.6rem;
+            letter-spacing: 0.025em;
+            transition: all 0.25s ease;
+        }
+        #submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px -10px rgba(29,78,216,0.5);
         }
 
 </style>
@@ -2064,7 +2122,7 @@
 </div>
 </a>
 <div class="nav-desktop flex items-center space-x-8">
-<a class="nav-link" href="#services">支援領域</a>
+<a class="nav-link" href="#services">支援サービス</a>
 <a class="nav-link" href="#results">事例</a>
 <a class="nav-link" href="#domains">対応領域</a>
 <a class="nav-link" href="#technology">技術・SES</a>
@@ -2079,34 +2137,34 @@
             <div class="blur-circle-1"></div>
             <div class="blur-circle-2"></div>
         </div>
-        <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
-            <h1 class="text-6xl font-bold mb-6 fade-in">
-               最新技術と柔軟な対応力で<br>
-                <span class="text-gradient">AIから基幹システムまで</span><br>
-                ワンストップ実現<br>
-                <span style="font-size: 0.7em; display: block; margin-top: 1rem;">DATA IN HARMONY</span>
+        <div class="hero-shell max-w-4xl mx-auto px-6 relative z-10 text-center w-full">
+            <div class="fade-in" style="margin-bottom:1.5rem;">
+                <span class="eyebrow">DATA IN HARMONY</span>
+            </div>
+            <h1 class="font-bold fade-in" style="font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.1;letter-spacing:-0.03em;color:#eaf2ff;margin-bottom:1.5rem;">
+                AI活用から基幹システムまで、<br>
+                <span class="text-gradient">一気通貫で伴走する</span><br>
+                技術パートナー
             </h1>
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto fade-in stagger-1">
-                システム開発から技術支援まで、幅広いITソリューションで<br>
-                お客様のプロジェクトを成功に導きます
+            <p class="fade-in stagger-1" style="font-size:1.08rem;line-height:1.95;max-width:44rem;margin:0 auto 2rem;color:rgba(226,232,240,0.88);">
+                相談の入口は問わない。LP改善でも、社内ツール開発でも、AI活用の整理でも、要件未定でもかまいません。現状整理から設計・実装・運用定着まで、事業の現場に根ざして進めます。
             </p>
-            <div class="flex flex-col gap-4 justify-center fade-in stagger-2" style="gap: 1rem;">
-                <div>
-                    <a href="#contact" class="btn-primary">
-                        ✉ お問い合わせ
-                    </a>
-                    <a href="#services" class="glass-effect" style="padding: 0.75rem 2rem; border-radius: 0.5rem; color: white; text-decoration: none; margin-left: 1rem; display: inline-block; transition: all 0.3s ease;">
-                        サービス詳細
-                    </a>
-                </div>
+            <div class="fade-in stagger-2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+                <a href="#contact" class="btn-primary" style="padding:0.9rem 2.25rem;font-size:1rem;">課題整理を相談する</a>
+                <a href="#services" class="btn-secondary" style="padding:0.9rem 2.25rem;font-size:1rem;">支援サービスを見る</a>
+            </div>
+            <div class="hero-scan fade-in stagger-3">
+                <div class="scan-card"><strong>AI導入支援</strong><span>活用方針の整理から社内定着まで</span></div>
+                <div class="scan-card"><strong>業務効率化</strong><span>属人化・説明コスト・フロー改善</span></div>
+                <div class="scan-card"><strong>ツール開発・LP制作</strong><span>小規模着手から本格システム化まで</span></div>
             </div>
         </div>
     </section>
 <section id="services" class="py-20 section-light">
 <div class="max-w-7xl mx-auto px-6">
 <div class="text-center mb-16">
-<h2 class="text-4xl font-bold mb-4">ご相談いただける領域</h2>
-<p class="text-xl text-gray-600 max-w-3xl mx-auto">上部のメッセージを起点に、Rubatoがどの領域で伴走できるのかを整理しています。営業導線、業務運用、実装・保守まで、必要なところからご相談いただけます。</p>
+<h2 class="text-4xl font-bold mb-4">支援サービス</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">AI導入支援、業務効率化、小規模ツール開発、LP・Web制作を4つの軸に、相談テーマに応じてどこから着手するかをご提案します。</p>
 </div>
 <div class="grid gap-8 grid-md-cols-2">
 <div class="service-card">
@@ -2155,18 +2213,18 @@
 </div>
 </div>
 <div class="glance-strip offer-band" style="margin-top:2rem;">
-<div class="glance-item"><strong>営業・集客の導線設計</strong><span>訴求整理、比較導線、CTA、フォーム設計まで、一貫した見直しに対応します。</span></div>
-<div class="glance-item"><strong>運用フローの整備</strong><span>FAQ、営業資料、標準文面、引き継ぎ導線など、実務で効く運用設計まで支援します。</span></div>
-<div class="glance-item"><strong>開発・保守まで接続</strong><span>小規模改善の先にある既存改修、継続開発、SES・技術支援まで無理なく接続できます。</span></div>
+<div class="glance-item"><strong>問い合わせ導線</strong><span>訴求整理、比較導線、CTA、フォーム周りまで一体で見直します。</span></div>
+<div class="glance-item"><strong>運用改善</strong><span>FAQ、営業資料、標準文面、社内共有の実務改善まで対応します。</span></div>
+<div class="glance-item"><strong>技術基盤</strong><span>小規模改善から既存改修、SES・システム開発まで拡張できます。</span></div>
 </div>
 </div>
 </section>
 <section class="py-20 section-light" id="results">
 <div class="max-w-7xl mx-auto px-6">
 <div class="section-head">
-<span class="eyebrow">Case studies</span>
-<h2 class="text-4xl font-bold">代表的なご相談事例</h2>
-<p class="section-summary">問い合わせ獲得、説明負荷の削減、AI定着、業務改善に関するご相談の中でも、特に再現性の高いテーマを抜粋してご紹介しています。</p>
+<span class="eyebrow">Proof / cases</span>
+<h2 class="text-4xl font-bold">相談が多い代表事例</h2>
+<p class="section-summary">問い合わせ獲得、説明コスト削減、AI定着、業務改善の相談で特に多い代表例を、課題・対応内容・主な納品物が分かる形で整理しています。</p>
 </div>
 <div class="premium-grid three">
 <article class="premium-card case-study-card">
@@ -2253,34 +2311,29 @@
 </section>
 <section id="mvv" class="py-20 gradient-bg">
 <div class="max-w-7xl mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-bold mb-4">Mission / Vision / Values</h2>
-<p class="text-xl text-gray-300">Rubatoが大切にしているのは、見栄えだけで終わらせず、現場で機能し続ける改善へ着地させることです。</p>
+<div class="section-head text-center" style="margin-left:auto;margin-right:auto;max-width:56rem;">
+<span class="eyebrow">Mission / Vision / Values</span>
+<h2 class="text-4xl font-bold" style="margin-top:1rem;">Rubatoの考え方</h2>
+<p class="section-summary" style="margin-left:auto;margin-right:auto;">私たちが何を大切にし、どこを目指しているか。事業の背景にある考え方をお伝えします。</p>
 </div>
-<div class="grid gap-8 grid-md-cols-3">
-<div class="mvv-card">
-<div class="mvv-icon">M</div>
-<h3 class="text-2xl font-bold mb-4">MISSION</h3>
-<h4 class="text-lg font-medium mb-4 text-gradient">事業課題を、現場で機能する仕組みへ変える</h4>
-<p class="text-gray-300">営業導線の見直し、説明負荷の削減、AI活用、業務効率化といった課題を、企画だけで終わらせず、実装と運用定着まで責任を持ってつなぎます。</p>
+<div class="grid gap-8 grid-md-cols-3" style="margin-top:3rem;">
+<div class="mvv-card" style="position:relative;overflow:hidden;">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3b82f6,#14b8a6);border-radius:1rem 1rem 0 0;"></div>
+<div class="mvv-icon" style="font-size:0.75rem;letter-spacing:0.12em;">MISSION</div>
+<h3 class="text-2xl font-bold mb-4" style="line-height:1.3;">現場で動く仕組みを、<br>つくり続ける</h3>
+<p class="text-gray-300" style="line-height:1.9;font-size:0.98rem;">「提案だけ」で終わらせない。設計から実装、運用定着まで、現場に根ざした支援を届け続けることが私たちの使命です。課題を整理するだけでなく、動く状態まで責任を持って伴走します。</p>
 </div>
-<div class="mvv-card">
-<div class="mvv-icon">V</div>
-<h3 class="text-2xl font-bold mb-4">VISION</h3>
-<h4 class="text-lg font-medium mb-4 text-gradient">構想段階から運用フェーズまで伴走できる技術パートナーへ</h4>
-<p class="text-gray-300">小規模な改善相談から始まり、必要に応じてWeb再設計、業務ツール化、既存改修、保守・SESまで無理なく広げられる体制を整え続けます。</p>
+<div class="mvv-card" style="position:relative;overflow:hidden;">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#8b5cf6,#3b82f6);border-radius:1rem 1rem 0 0;"></div>
+<div class="mvv-icon" style="font-size:0.75rem;letter-spacing:0.12em;">VISION</div>
+<h3 class="text-2xl font-bold mb-4" style="line-height:1.3;">相談が途切れない、<br>一気通貫の技術パートナーへ</h3>
+<p class="text-gray-300" style="line-height:1.9;font-size:0.98rem;">AI活用の初期整理から、業務設計、ツール開発、既存システム改修まで。「担当が変わる」「会社を変える」必要なく、成長フェーズに応じて継続的に伴走できる存在を目指しています。</p>
 </div>
-<div class="mvv-card">
-<div class="mvv-icon">VAL</div>
-<h3 class="text-2xl font-bold mb-4">VALUES</h3>
-<h4 class="text-lg font-medium mb-4 text-gradient">Business First / Operational Reality / Technical Integrity</h4>
-<ul class="text-gray-300 text-sm space-y-2">
-<li>事業成果から逆算し、優先順位の高い論点に絞って提案すること</li>
-<li>現場の運用負荷まで踏まえ、導入後に回る設計へ落とし込むこと</li>
-<li>小さく始めても、後から開発・保守へつなげやすい構造にすること</li>
-<li>説明のしやすさと実装品質の両立を重視すること</li>
-<li>短期施策ではなく、継続的に改善できる関係性を築くこと</li>
-</ul>
+<div class="mvv-card" style="position:relative;overflow:hidden;">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#14b8a6,#10b981);border-radius:1rem 1rem 0 0;"></div>
+<div class="mvv-icon" style="font-size:0.75rem;letter-spacing:0.12em;">VALUES</div>
+<h3 class="text-2xl font-bold mb-4" style="line-height:1.3;">誠実に、着実に、<br>共に前へ</h3>
+<p class="text-gray-300" style="line-height:1.9;font-size:0.98rem;">現場を知らない提案はしない。実現可能な粒度で着手する。納品後も改善を続ける。そういった積み重ねこそが、長期的な信頼につながると考えています。小さく始めて、共に育てる。それが私たちのスタイルです。</p>
 </div>
 </div>
 </div>
@@ -2641,8 +2694,8 @@
 <section id="technology" class="py-20 gradient-bg">
 <div class="max-w-7xl mx-auto px-6">
 <div class="text-center mb-16">
-<h2 class="text-4xl font-bold mb-4">開発基盤・技術支援体制</h2>
-<p class="text-xl text-gray-300">AI活用や業務改善の先にある改修、保守、継続開発、体制補強まで見据えた技術基盤をご確認いただけます。</p>
+<h2 class="text-4xl font-bold mb-4">対応技術領域・SES関連相談</h2>
+<p class="text-xl text-gray-300">AI活用や業務改善だけでなく、その先の改修・保守・体制補強まで見据えた技術基盤もご確認いただけます。</p>
 </div>
 <div class="grid gap-6 grid-md-cols-4">
 <div class="tech-card"><span class="tech-emoji">Java</span><h3 class="text-xl font-bold mb-2">Java</h3><p class="text-gray-300 text-sm">Spring Boot / Spring MVC</p></div>
@@ -2705,8 +2758,8 @@
 </ul>
 </div>
 <div class="cta-card">
-<h3 class="text-2xl font-bold mb-4">構想段階からご相談いただけます</h3>
-<p class="mb-6">現状サイトURL、対象サービス、いま起きている課題、希望時期などがあれば十分です。論点整理や優先順位づけからご一緒できます。</p>
+<h3 class="text-2xl font-bold mb-4">要件未整理でもご相談ください</h3>
+<p class="mb-6">現状サイトURL、対象サービス、困っていること、希望時期などがあれば十分です。何を先に直すべきかの整理からご一緒できます。</p>
 <a href="#contact" class="cta-btn">今すぐ相談する</a>
 </div>
 </div>
@@ -2718,12 +2771,12 @@
 <div class="sales-cta-band">
 <div>
 <span class="eyebrow">Consultation</span>
-<h2>構想段階でも、まずは現状整理からご相談いただけます</h2>
+<h2>要件未整理でも、まずは現在の課題整理からご相談ください</h2>
 <p>LPの反応が弱い、サービスの違いが伝わらない、フォームで離脱される、営業資料づくりに時間がかかる、AI活用が社内に定着しない。そうした状態でも、現状整理から一緒に進められます。</p>
 <div class="cta-points">
 <span>現状URLや資料URLの共有から相談可能</span>
 <span>1ページ・1テーマだけの相談にも対応</span>
-<span>比較検討中・構想段階でもご相談可能</span>
+<span>比較検討中・要件未整理でも相談歓迎</span>
 </div>
 </div>
 <div class="cta-aside">
@@ -2732,7 +2785,7 @@
 <div class="cta-card"><strong>よくある相談</strong><span>問い合わせが少ない、比較で選ばれにくい、フォーム離脱が多い、説明工数が重い、AI活用が実務に定着しない。</span></div>
 <div class="cta-action-row">
 <a class="btn-primary" href="#contact">課題整理を相談する</a>
-<a class="btn-secondary" href="/cdn-cgi/l/email-protection#046d6a626b4476716665706b297061676c2a676b2a6e74">メールで相談する</a>
+<a class="btn-secondary" href="/cdn-cgi/l/email-protection#442d2a222b0436312625302b693021272c6a272b6a2e34">メールで相談する</a>
 </div>
 </div>
 </div>
@@ -2747,31 +2800,31 @@
 <div class="contact-support-row">
 <span class="soft-pill">LP・Web改善の相談歓迎</span>
 <span class="soft-pill">現状URL共有だけでも可</span>
-<span class="soft-pill">構想段階から相談可能</span>
-<span class="soft-pill">比較検討中のご相談歓迎</span>
+<span class="soft-pill">要件未整理でも相談可能</span>
+<span class="soft-pill">比較検討中でも相談歓迎</span>
 <span class="soft-pill">小規模改善から対応</span>
 </div>
 </div>
 <div class="premium-grid three" style="margin-bottom:2rem;">
 <article class="premium-card">
-<span class="card-label">相談前の整理 01</span>
-<h3>依頼範囲が固まっていない段階でも進められます</h3>
-<p class="card-brief">「何から着手するべきか分からない」という状態でも、現状整理と優先順位づけからご一緒します。</p>
+<span class="card-label">No worry 01</span>
+<h3>依頼範囲が決まっていなくても大丈夫です</h3>
+<p class="card-brief">「LP改善が先か、業務改善が先か分からない」といった段階でも、優先順位の整理から対応します。</p>
 </article>
 <article class="premium-card">
-<span class="card-label">相談前の整理 02</span>
-<h3>技術要件が言語化できていなくても問題ありません</h3>
-<p class="card-brief">現状URLや資料、いま起きている課題をご共有いただければ、必要な論点はこちらで整理します。</p>
+<span class="card-label">No worry 02</span>
+<h3>技術的な説明ができなくても問題ありません</h3>
+<p class="card-brief">現状URL、困っていること、社内で起きていることを共有いただければ、必要な論点をこちらで整理します。</p>
 </article>
 <article class="premium-card">
-<span class="card-label">相談前の整理 03</span>
-<h3>まずは1ページ・1テーマからでも着手できます</h3>
-<p class="card-brief">大規模な発注を前提とせず、LP1本、FAQ整備、入力フォーム改善など、優先度の高い箇所から着手できます。</p>
+<span class="card-label">No worry 03</span>
+<h3>まずは1ページ・1テーマからでも相談できます</h3>
+<p class="card-brief">大規模な発注前提ではなく、LP1本、FAQ整備、入力フォーム改善など小さな着手にも対応します。</p>
 </article>
 </div>
 <div class="contact-shell">
 <aside class="quick-contact-panel">
-<h3>ご相談前によくある懸念</h3>
+<h3>送信前によくある不安</h3>
 <div class="contact-mini-points">
 <div class="contact-chip"><strong>OK 01</strong>何を依頼するべきか決まっていない</div>
 <div class="contact-chip"><strong>OK 02</strong>比較検討中で、まだ正式発注前の段階</div>
@@ -2779,11 +2832,11 @@
 <div class="contact-chip"><strong>OK 04</strong>まずはLPだけ、FAQだけ直したい</div>
 </div>
 <div class="contact-note">
-<strong>初回共有で十分な情報</strong>
+<strong>送信時にあると助かる情報</strong>
 <p>対象サービス、現状の課題、参考URL、改善したいポイント、希望時期などがあれば十分です。ページURLや資料URLだけの共有からでも整理可能です。</p>
 </div>
 <div class="contact-example">
-<strong>ご相談文の例</strong>
+<strong>そのまま使える相談文の例</strong>
 <p>「サービス内容は良いが、LPからの問い合わせが伸びないので、訴求とフォーム導線を見直したい」<br/>「AI活用で営業資料作成を効率化しつつ、Webからの問い合わせ導線も整えたい」<br/>「何を先に直すべきか決まっていないので、優先順位の整理から相談したい」</p>
 </div>
 </aside>
@@ -2857,9 +2910,9 @@
 <section class="py-20 section-light" id="company">
 <div class="max-w-7xl mx-auto px-6">
 <div class="section-head">
-<span class="eyebrow">Company / development support</span>
-<h2 class="text-4xl font-bold">会社情報・開発支援体制</h2>
-<p class="section-summary">現在のサイトではAI導入支援、業務効率化、小規模ツール開発、LP・Web制作を中心にご紹介していますが、Rubatoはもともとシステム開発・保守・SESを含む技術支援を行う会社です。業務改善やAI活用から発展するシステム化、継続運用、開発体制の補強まで一貫してご相談いただけます。</p>
+<span class="eyebrow">Company / engineering support</span>
+<h2 class="text-4xl font-bold">会社情報・SES / 技術支援体制</h2>
+<p class="section-summary">主力訴求はAI導入支援、業務効率化、小規模ツール開発、LP・Web制作ですが、Rubatoはもともとシステム開発・保守・SESを含む技術支援を行う会社です。業務改善やAI活用から発展するシステム化、継続運用、開発体制の補強まで一貫してご相談いただけます。</p>
 </div>
 <div class="two-col">
 <article class="company-panel company-summary">
@@ -2868,14 +2921,14 @@
 <li>会社名：株式会社Rubato</li>
 <li>所在地：〒124-0022 東京都葛飾区奥戸3-22-14</li>
 <li>電話：090-5385-2367</li>
-<li>メール：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f891969e97b88a8d9a998c97d58c9d9b90d69b97d69288">[email&#160;protected]</a></li>
+<li>メール：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2dbdcd4ddf2c0c7d0d3c6dd9fc6d7d1da9cd1dd9cd8c2">[email&#160;protected]</a></li>
 <li>Webサイト：https://rubato-tech.co.jp/</li>
 <li>事業：システム開発・保守、SES・技術支援、AI導入支援、業務効率化、小規模ツール開発、LP・Web制作</li>
 </ul>
 </article>
 <article class="company-panel ses-summary">
 <h3>SES・技術支援の概要</h3>
-<p style="color:#cbd5e1; line-height:1.9; margin-bottom:1rem;">要件整理から設計、実装、テスト、保守まで、法人向けの開発・運用支援に対応しています。自社施策としてのWeb改善やAI導入支援だけでなく、既存システムの改修、継続開発、体制補強を目的とした技術支援のご相談も可能です。</p>
+<p style="color:#475569; line-height:1.9; margin-bottom:1rem;">要件整理から設計、実装、テスト、保守まで、法人向けの開発・運用支援に対応しています。自社施策としてのWeb改善やAI導入支援だけでなく、既存システムの改修、継続開発、体制補強を目的とした技術支援のご相談も可能です。</p>
 <ul class="ses-list">
 <li>Webアプリケーション、業務システム、社内向けツールの開発支援</li>
 <li>既存システムの改修、保守、追加機能開発、運用改善</li>
@@ -2887,8 +2940,8 @@
 </div>
 <div class="premium-grid three" style="margin-top:2rem;">
 <article class="premium-card">
-<span class="card-label">支援範囲</span>
-<h3>支援スコープ</h3>
+<span class="card-label">Support scope</span>
+<h3>対応できる支援範囲</h3>
 <ul class="dense-list">
 <li>新規開発、追加開発、既存改修、保守運用</li>
 <li>社内向け業務システムや管理画面の整備</li>
@@ -2898,8 +2951,8 @@
 </ul>
 </article>
 <article class="premium-card">
-<span class="card-label">参画形態</span>
-<h3>参画形態・対応工程</h3>
+<span class="card-label">Process / roles</span>
+<h3>対応工程・関わり方</h3>
 <ul class="dense-list">
 <li>要件整理、仕様調整、設計レビュー</li>
 <li>開発、検証、受入支援、リリース対応</li>
@@ -2909,8 +2962,8 @@
 </ul>
 </article>
 <article class="premium-card">
-<span class="card-label">相談例</span>
-<h3>技術支援で多いご相談</h3>
+<span class="card-label">Common requests</span>
+<h3>SES領域で多いご相談</h3>
 <ul class="dense-list">
 <li>既存システムの改修を進めたいが、手が足りない</li>
 <li>小規模ツールから始めて、将来的にシステム化したい</li>
@@ -2920,7 +2973,7 @@
 </ul>
 </article>
 </div>
-<div class="support-note" style="margin-top:2rem;">本ページではAI導入支援や業務改善を中心にご紹介していますが、<strong style="color:#f8fafc;">Rubatoの基盤にはシステム開発・保守・技術支援</strong>があります。現状整理から始め、その後の改修・保守・継続開発まで一社でつなげたい場合にもご相談いただけます。</div>
+<div class="support-note" style="margin-top:2rem;">問い合わせ獲得寄りのページ構成にしていますが、<strong style="color:#f8fafc;">Rubatoの基盤にはシステム開発・保守・SESの技術支援</strong>があります。AI導入支援や業務改善から始まり、その後の開発・運用体制まで一社でつなげたい場合にもご相談いただけます。</div>
 <div class="company-panel" style="margin-top:1.5rem; text-align:center;">
 <a class="text-blue-600 hover:underline mr-4" href="#" onclick="openModal('privacyModal')">個人情報保護方針</a>
 <a class="text-blue-600 hover:underline" href="#" onclick="openModal('securityModal')">情報セキュリティ基本方針</a>
@@ -2939,7 +2992,7 @@
 </div>
 </div>
 <div class="footer-links">
-<a href="#services" style="color:#94a3b8;text-decoration:none;font-size:0.92rem;">支援領域</a>
+<a href="#services" style="color:#94a3b8;text-decoration:none;font-size:0.92rem;">支援サービス</a>
 <a href="#domains" style="color:#94a3b8;text-decoration:none;font-size:0.92rem;">対応領域</a>
 <a href="#deliverables" style="color:#94a3b8;text-decoration:none;font-size:0.92rem;">納品物</a>
 <a href="#themes" style="color:#94a3b8;text-decoration:none;font-size:0.92rem;">支援テーマ例</a>
@@ -2987,7 +3040,7 @@
 <h4>株式会社Rubato</h4>
 <p>〒124-0022 東京都葛飾区奥戸3-22-14<br/>
                 TEL: 090-5385-2367<br/>
-                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93e3e1fae5f2f0ead3e1e6f1f2e7fcbee7f6f0fbbdf0fcbdf9e3">[email&#160;protected]</a></p>
+                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="79090b100f181a00390b0c1b180d16540d1c1a11571a16571309">[email&#160;protected]</a></p>
 <h3>7. 本方針の変更について</h3>
 <p>当社は、本方針を変更する場合があります。変更後の方針は、当社ウェブサイトに掲載された時点で効力を生じるものとします。</p>
 <p style="text-align: right; margin-top: 2rem;">
@@ -3035,7 +3088,7 @@
 <h4>株式会社Rubato 情報セキュリティ管理責任者</h4>
 <p>〒124-0022 東京都葛飾区奥戸3-22-14<br/>
                 TEL: 090-5385-2367<br/>
-                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a190f091f18031e132a181f080b1e05471e0f090244090544001a">[email&#160;protected]</a></p>
+                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0675636573746f727f467473646772692b7263656e286569286c76">[email&#160;protected]</a></p>
 <p style="text-align: right; margin-top: 2rem;">
                     制定日：2024年9月1日<br/>
                     株式会社Rubato<br/>
@@ -3111,23 +3164,22 @@
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        // Scroll reveal - add reveal class to cards below fold
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        // Observe elements for animation
-        document.querySelectorAll('.hover-lift, .tech-icon, .mvv-card').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.hover-lift, .tech-card, .mvv-card, .premium-card, .service-card, .deliverable-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(16px)';
+            el.style.transition = 'opacity 0.55s ease, transform 0.55s cubic-bezier(0.22,1,0.36,1)';
+            revealObserver.observe(el);
         });
 
         // Modal functions
@@ -3151,10 +3203,4 @@
     </script>
 </body>
 </html>
-<script id="html_badge_script1">
-        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDr0FWb%2B4PMDv9gCRUxH73TSKbEo75TBCsul4hmiFCNDRvgyU8W35wrvw9iqF7R6MosPFzT3LyN1njNuPoyao5cOyJSuQxhoZic6XQJA8V5iemdg7XdmkgqxKv4qrGTncooPnDHzFlW%2BwxYGWu0chDMC3gWscw8Fbc4Xq3iUWpI1MpM1AJ6jDQa%2B7A0MDvLl7XQSU8t7Vl8dfmqz2HjR9CDaomOKgxUv1OUQVC47oiQtPmGRfgYOmTsIRB1QjRO2%2BmzsYrdbJmWmuQlQNptKKW1cIkyLbFODnTQ2Xq598A8469ZfLiFE7onfw6wla2ykVZw%2Be%2BDs9mbLPaE0%2FrrQ73w4H9oyt9AahgkckAqjouv4BfFuZrvRui2yaDga1JwBM3F%2FP%2FsVlPqY0TCvjjT6obYhnASXhimBBKCvRJdMye3AMiDYHKD5JrEX%2FUzh%2FoTdtnyYZSZ%2FuBdx32qE20W7xNPOmKPF7%2BsM6r%2Ft9zlniVqYECO3HjErA2WokEljqjTVQMQ%3D%3D";
-        window.__genspark_locale = "ja-JP";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDr0FWb+4PMDv9gCRUxH73TSKbEo75TBCsul4hmiFCNDRvgyU8W35wrvw9iqF7R6MosPFzT3LyN1njNuPoyao5cOyJSuQxhoZic6XQJA8V5iemdg7XdmkgqxKv4qrGTncooPnDHzFlW+wxYGWu0chDMC3gWscw8Fbc4Xq3iUWpI1MpM1AJ6jDQa+7A0MDvLl7XQSU8t7Vl8dfmqz2HjR9CDaomOKgxUv1OUQVC47oiQtPmGRfgYOmTsIRB1QjRO2+mzsYrdbJmWmuQlQNptKKW1cIkyLbFODnTQ2Xq598A8469ZfLiFE7onfw6wla2ykVZw+e+Ds9mbLPaE0/rrQ73w4H9oyt9AahgkckAqjouv4BfFuZrvRui2yaDga1JwBM3F/P/sVlPqY0TCvjjT6obYhnASXhimBBKCvRJdMye3AMiDYHKD5JrEX/Uzh/oTdtnyYZSZ/uBdx32qE20W7xNPOmKPF7+sM6r/t9zlniVqYECO3HjErA2WokEljqjTVQMQ==";
-    </script>
-<script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+
